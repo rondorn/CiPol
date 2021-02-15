@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,24 @@
 		11A64A7E25DAE0BD00713657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A7C25DAE0BD00713657 /* Main.storyboard */; };
 		11A64A8A25DAE0BD00713657 /* CiPolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A8925DAE0BD00713657 /* CiPolTests.swift */; };
 		11A64A9525DAE0BD00713657 /* CiPolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A9425DAE0BD00713657 /* CiPolUITests.swift */; };
+		11A64ABA25DAE16100713657 /* AddServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AA625DAE16000713657 /* AddServerController.swift */; };
+		11A64ABC25DAE16100713657 /* ChangeTimeIntervalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AA825DAE16000713657 /* ChangeTimeIntervalHandler.swift */; };
+		11A64ABD25DAE16100713657 /* JobListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AA925DAE16000713657 /* JobListHandler.swift */; };
+		11A64ABE25DAE16100713657 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAA25DAE16000713657 /* NotificationHandler.swift */; };
+		11A64ABF25DAE16100713657 /* JenkinsServerPrefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAB25DAE16000713657 /* JenkinsServerPrefHandler.swift */; };
+		11A64AC025DAE16100713657 /* ServerAdminController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAC25DAE16000713657 /* ServerAdminController.swift */; };
+		11A64AC125DAE16100713657 /* Utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAD25DAE16000713657 /* Utilties.swift */; };
+		11A64AC225DAE16100713657 /* AddJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAE25DAE16000713657 /* AddJobController.swift */; };
+		11A64AC325DAE16100713657 /* BackgroundTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAF25DAE16000713657 /* BackgroundTesting.swift */; };
+		11A64AC625DAE16100713657 /* JenkinsJobPrefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB325DAE16100713657 /* JenkinsJobPrefHandler.swift */; };
+		11A64AC725DAE16100713657 /* JenkinsCommuncationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB425DAE16100713657 /* JenkinsCommuncationHandler.swift */; };
+		11A64AC925DAE16100713657 /* PasswordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB625DAE16100713657 /* PasswordStorage.swift */; };
+		11A64ACA25DAE16100713657 /* PrefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB725DAE16100713657 /* PrefHandler.swift */; };
+		11A64ACB25DAE16100713657 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB825DAE16100713657 /* Toast.swift */; };
+		11A64AD425DAE17000713657 /* PrefHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AD025DAE17000713657 /* PrefHandlerTest.swift */; };
+		11A64AD525DAE17000713657 /* JenkinsCommuncationHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */; };
+		11A64AD625DAE17000713657 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11A64AD225DAE17000713657 /* Info.plist */; };
+		739BCCFB6B0BDC11B3134256 /* Pods_CiPol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +64,26 @@
 		11A64A9025DAE0BD00713657 /* CiPolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CiPolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A64A9425DAE0BD00713657 /* CiPolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiPolUITests.swift; sourceTree = "<group>"; };
 		11A64A9625DAE0BD00713657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A64AA625DAE16000713657 /* AddServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServerController.swift; sourceTree = "<group>"; };
+		11A64AA825DAE16000713657 /* ChangeTimeIntervalHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTimeIntervalHandler.swift; sourceTree = "<group>"; };
+		11A64AA925DAE16000713657 /* JobListHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobListHandler.swift; sourceTree = "<group>"; };
+		11A64AAA25DAE16000713657 /* NotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		11A64AAB25DAE16000713657 /* JenkinsServerPrefHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsServerPrefHandler.swift; sourceTree = "<group>"; };
+		11A64AAC25DAE16000713657 /* ServerAdminController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAdminController.swift; sourceTree = "<group>"; };
+		11A64AAD25DAE16000713657 /* Utilties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilties.swift; sourceTree = "<group>"; };
+		11A64AAE25DAE16000713657 /* AddJobController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJobController.swift; sourceTree = "<group>"; };
+		11A64AAF25DAE16000713657 /* BackgroundTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTesting.swift; sourceTree = "<group>"; };
+		11A64AB325DAE16100713657 /* JenkinsJobPrefHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsJobPrefHandler.swift; sourceTree = "<group>"; };
+		11A64AB425DAE16100713657 /* JenkinsCommuncationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsCommuncationHandler.swift; sourceTree = "<group>"; };
+		11A64AB625DAE16100713657 /* PasswordStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordStorage.swift; sourceTree = "<group>"; };
+		11A64AB725DAE16100713657 /* PrefHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefHandler.swift; sourceTree = "<group>"; };
+		11A64AB825DAE16100713657 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		11A64AD025DAE17000713657 /* PrefHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefHandlerTest.swift; sourceTree = "<group>"; };
+		11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsCommuncationHandlerTest.swift; sourceTree = "<group>"; };
+		11A64AD225DAE17000713657 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../CiMon/CiMonTests/Info.plist; sourceTree = "<group>"; };
+		7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.release.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.release.xcconfig"; sourceTree = "<group>"; };
+		E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.debug.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.debug.xcconfig"; sourceTree = "<group>"; };
+		EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CiPol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739BCCFB6B0BDC11B3134256 /* Pods_CiPol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +119,8 @@
 				11A64A8825DAE0BD00713657 /* CiPolTests */,
 				11A64A9325DAE0BD00713657 /* CiPolUITests */,
 				11A64A7425DAE0BC00713657 /* Products */,
+				2C22CE52FDB072E13128A0AC /* Pods */,
+				FFF3C0F03FD785B006EC521C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,12 +137,26 @@
 		11A64A7525DAE0BC00713657 /* CiPol */ = {
 			isa = PBXGroup;
 			children = (
+				11A64AAE25DAE16000713657 /* AddJobController.swift */,
+				11A64AA625DAE16000713657 /* AddServerController.swift */,
 				11A64A7625DAE0BC00713657 /* AppDelegate.swift */,
-				11A64A7825DAE0BC00713657 /* ViewController.swift */,
 				11A64A7A25DAE0BD00713657 /* Assets.xcassets */,
-				11A64A7C25DAE0BD00713657 /* Main.storyboard */,
-				11A64A7F25DAE0BD00713657 /* Info.plist */,
+				11A64AAF25DAE16000713657 /* BackgroundTesting.swift */,
+				11A64AA825DAE16000713657 /* ChangeTimeIntervalHandler.swift */,
 				11A64A8025DAE0BD00713657 /* CiPol.entitlements */,
+				11A64A7F25DAE0BD00713657 /* Info.plist */,
+				11A64AB425DAE16100713657 /* JenkinsCommuncationHandler.swift */,
+				11A64AB325DAE16100713657 /* JenkinsJobPrefHandler.swift */,
+				11A64AAB25DAE16000713657 /* JenkinsServerPrefHandler.swift */,
+				11A64AA925DAE16000713657 /* JobListHandler.swift */,
+				11A64A7C25DAE0BD00713657 /* Main.storyboard */,
+				11A64AAA25DAE16000713657 /* NotificationHandler.swift */,
+				11A64AB625DAE16100713657 /* PasswordStorage.swift */,
+				11A64AB725DAE16100713657 /* PrefHandler.swift */,
+				11A64AAC25DAE16000713657 /* ServerAdminController.swift */,
+				11A64AB825DAE16100713657 /* Toast.swift */,
+				11A64AAD25DAE16000713657 /* Utilties.swift */,
+				11A64A7825DAE0BC00713657 /* ViewController.swift */,
 			);
 			path = CiPol;
 			sourceTree = "<group>";
@@ -109,6 +164,9 @@
 		11A64A8825DAE0BD00713657 /* CiPolTests */ = {
 			isa = PBXGroup;
 			children = (
+				11A64AD225DAE17000713657 /* Info.plist */,
+				11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */,
+				11A64AD025DAE17000713657 /* PrefHandlerTest.swift */,
 				11A64A8925DAE0BD00713657 /* CiPolTests.swift */,
 				11A64A8B25DAE0BD00713657 /* Info.plist */,
 			);
@@ -124,6 +182,23 @@
 			path = CiPolUITests;
 			sourceTree = "<group>";
 		};
+		2C22CE52FDB072E13128A0AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */,
+				7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFF3C0F03FD785B006EC521C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11A64A9925DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPol" */;
 			buildPhases = (
+				6F662E2F5B5547F4D82E2199 /* [CP] Check Pods Manifest.lock */,
 				11A64A6F25DAE0BC00713657 /* Sources */,
 				11A64A7025DAE0BC00713657 /* Frameworks */,
 				11A64A7125DAE0BC00713657 /* Resources */,
+				EB33ED3CBF903DD71A398E05 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A64AD625DAE17000713657 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,13 +326,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F662E2F5B5547F4D82E2199 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CiPol-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB33ED3CBF903DD71A398E05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		11A64A6F25DAE0BC00713657 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A64ABD25DAE16100713657 /* JobListHandler.swift in Sources */,
 				11A64A7925DAE0BC00713657 /* ViewController.swift in Sources */,
+				11A64AC625DAE16100713657 /* JenkinsJobPrefHandler.swift in Sources */,
+				11A64AC125DAE16100713657 /* Utilties.swift in Sources */,
+				11A64AC025DAE16100713657 /* ServerAdminController.swift in Sources */,
+				11A64AC325DAE16100713657 /* BackgroundTesting.swift in Sources */,
+				11A64AC225DAE16100713657 /* AddJobController.swift in Sources */,
+				11A64ACB25DAE16100713657 /* Toast.swift in Sources */,
+				11A64ABE25DAE16100713657 /* NotificationHandler.swift in Sources */,
+				11A64AC925DAE16100713657 /* PasswordStorage.swift in Sources */,
+				11A64AC725DAE16100713657 /* JenkinsCommuncationHandler.swift in Sources */,
+				11A64ACA25DAE16100713657 /* PrefHandler.swift in Sources */,
+				11A64ABC25DAE16100713657 /* ChangeTimeIntervalHandler.swift in Sources */,
 				11A64A7725DAE0BC00713657 /* AppDelegate.swift in Sources */,
+				11A64ABF25DAE16100713657 /* JenkinsServerPrefHandler.swift in Sources */,
+				11A64ABA25DAE16100713657 /* AddServerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +396,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A64AD525DAE17000713657 /* JenkinsCommuncationHandlerTest.swift in Sources */,
+				11A64AD425DAE17000713657 /* PrefHandlerTest.swift in Sources */,
 				11A64A8A25DAE0BD00713657 /* CiPolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,12 +554,14 @@
 		};
 		11A64A9A25DAE0BD00713657 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CiPol/CiPol.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RYVG8BC9NZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CiPol/Info.plist;
@@ -431,6 +569,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -439,12 +578,14 @@
 		};
 		11A64A9B25DAE0BD00713657 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CiPol/CiPol.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RYVG8BC9NZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CiPol/Info.plist;
@@ -452,6 +593,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
