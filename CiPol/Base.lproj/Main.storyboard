@@ -16,6 +16,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="CiMon" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
+                                        <menuItem title="About CiMon" id="pBr-Zu-OxN" userLabel="About CiPol">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="aboutMenu:" target="Voe-Tx-rLC" id="ck7-Kl-jmx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="g8F-90-bJM"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>

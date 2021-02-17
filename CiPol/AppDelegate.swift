@@ -37,9 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         // Insert code here to tear down your application
     }
     
-    @objc func about(_ sender: Any?) {
-        
-
+    @IBAction func aboutMenu(_ sender: Any) {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
@@ -51,7 +49,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         message += "Distributed via GPL License\n"
         
         _ = Toast.displayInfo(title: "", message: message)
-
     }
     
     @objc func viewWindow(_ sender: Any?) {
@@ -72,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let trayIcon = "CiPol 🟢"
         
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "About CiPol", action: #selector(about(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "About CiPol", action: #selector(aboutMenu(_:)), keyEquivalent: ""))
         menu.insertItem(NSMenuItem.separator(), at: 1)
         menu.addItem(NSMenuItem(title: "Show Window", action: #selector(viewWindow(_:)), keyEquivalent: ""))
         menu.insertItem(NSMenuItem.separator(), at: 3)

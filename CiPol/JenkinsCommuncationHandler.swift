@@ -196,7 +196,7 @@ class JenkinsCommuncationHandler {
             
             if (testColor.contains("blue")){
                 status["lastJobStatus"] = Utilties.testPassed
-            } else if (testColor == "red"){
+            } else if (testColor.contains("red")){
                 status["lastJobStatus"] = Utilties.testFailed
             } else {
                 status["lastJobStatus"] = "Unknown"
