@@ -13,6 +13,9 @@ class PrefHandler {
     var jenkinsJobs = [String: JenkinsJobPrefHandler]()
     var pollingInterval : Int = Int()
     
+    var sortingField = String()
+    var sortingDirection = Bool()
+    
     let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     var preferenceFileLocation = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
@@ -24,6 +27,20 @@ class PrefHandler {
         }
         
         print ("Writing pref file to \(preferenceFileLocation)")
+    }
+    
+    func setSortingField(value: String){
+        self.sortingField = value
+    }
+    func getSortingField()->String{
+        return self.sortingField
+    }
+
+    func setSortingDirection(value: Bool){
+        self.sortingDirection = value
+    }
+    func getSortingDirection()->Bool{
+        return self.sortingDirection
     }
     
     func setJenkinsServerData(serverName:String, serverData: JenkinsServerPrefHandler){
@@ -110,6 +127,7 @@ class PrefHandler {
         return self.pollingInterval
     }
     
+    
     func savePreferences(){
         
         var combinedPrefs = [String:[String:[String:String]]]()
@@ -120,6 +138,14 @@ class PrefHandler {
         combinedPrefs["pollingInterval"] = [String:[String:String]]()
         combinedPrefs["pollingInterval"]!["pollingInterval"] = [String:String]();
         combinedPrefs["pollingInterval"]!["pollingInterval"]!["pollingInterval"] = String(self.getPollingInterval())
+
+        combinedPrefs["sortingField"] = [String:[String:String]]()
+        combinedPrefs["sortingField"]!["sortingField"] = [String:String]();
+        combinedPrefs["sortingField"]!["sortingField"]!["sortingField"] = self.getSortingField()
+        
+        combinedPrefs["sortingDirection"] = [String:[String:String]]()
+        combinedPrefs["sortingDirection"]!["sortingDirection"] = [String:String]();
+        combinedPrefs["sortingDirection"]!["sortingDirection"]!["sortingDirection"] = String(self.getSortingDirection())
         
         print ("jenkinsServerData, data equals \(self.jenkinsServerData)")
         for serverName in self.jenkinsServerData{
@@ -171,7 +197,10 @@ class PrefHandler {
         }
         
         if (encounteredError == false){
-            pollingInterval = Int(combinedPrefs["pollingInterval"]!["pollingInterval"]!["pollingInterval"]!) ?? 0
+            self.pollingInterval = Int(combinedPrefs["pollingInterval"]!["pollingInterval"]!["pollingInterval"]!) ?? 0
+            self.sortingField = combinedPrefs["sortingField"]?["sortingField"]?["sortingField"] ?? ""
+            self.sortingDirection = Bool(combinedPrefs["sortingDirection"]?["sortingDirection"]?["sortingDirection"] ?? "false") ?? false
+            
             let serverData = combinedPrefs["jenkinsServerData"]!
             let jobData = combinedPrefs["jenkinsJobs"]!
             

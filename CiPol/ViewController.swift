@@ -282,7 +282,11 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         determineStatusIcon(trayIcon: trayIcon)
         
-        sortTableData(sortBy: "displayName", accending: true)
+        if (prefHandler.getSortingField().isEmpty == true){
+            sortTableData(sortBy: "displayName", accending: true)
+        } else {
+            sortTableData(sortBy: prefHandler.getSortingField(), accending: prefHandler.getSortingDirection())
+        }
     }
     
     func determineStatusIcon(trayIcon: String){
@@ -335,6 +339,10 @@ class ViewController: NSViewController, NSWindowDelegate  {
             self.tableData[counter] = sortingHash2[sortIndex]
             counter = counter + 1
         }
+        
+        prefHandler.setSortingField(value: sortBy)
+        prefHandler.setSortingDirection(value: accending)
+        prefHandler.savePreferences()
         
         jobsTable.reloadData()
     }

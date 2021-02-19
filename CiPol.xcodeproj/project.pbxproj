@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11A1D6D025E0098E002FC55A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A8B25DAE0BD00713657 /* Info.plist */; };
+		11A1D6D425E00991002FC55A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A7F25DAE0BD00713657 /* Info.plist */; };
 		11A64A7725DAE0BC00713657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A7625DAE0BC00713657 /* AppDelegate.swift */; };
 		11A64A7925DAE0BC00713657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A7825DAE0BC00713657 /* ViewController.swift */; };
 		11A64A7B25DAE0BD00713657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A7A25DAE0BD00713657 /* Assets.xcassets */; };
@@ -29,7 +31,6 @@
 		11A64ACB25DAE16100713657 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB825DAE16100713657 /* Toast.swift */; };
 		11A64AD425DAE17000713657 /* PrefHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AD025DAE17000713657 /* PrefHandlerTest.swift */; };
 		11A64AD525DAE17000713657 /* JenkinsCommuncationHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */; };
-		11A64AD625DAE17000713657 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11A64AD225DAE17000713657 /* Info.plist */; };
 		739BCCFB6B0BDC11B3134256 /* Pods_CiPol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +81,6 @@
 		11A64AB825DAE16100713657 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		11A64AD025DAE17000713657 /* PrefHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefHandlerTest.swift; sourceTree = "<group>"; };
 		11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsCommuncationHandlerTest.swift; sourceTree = "<group>"; };
-		11A64AD225DAE17000713657 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../CiMon/CiMonTests/Info.plist; sourceTree = "<group>"; };
 		7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.release.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.release.xcconfig"; sourceTree = "<group>"; };
 		E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.debug.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CiPol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,7 +164,6 @@
 		11A64A8825DAE0BD00713657 /* CiPolTests */ = {
 			isa = PBXGroup;
 			children = (
-				11A64AD225DAE17000713657 /* Info.plist */,
 				11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */,
 				11A64AD025DAE17000713657 /* PrefHandlerTest.swift */,
 				11A64A8925DAE0BD00713657 /* CiPolTests.swift */,
@@ -306,6 +305,7 @@
 			files = (
 				11A64A7B25DAE0BD00713657 /* Assets.xcassets in Resources */,
 				11A64A7E25DAE0BD00713657 /* Main.storyboard in Resources */,
+				11A1D6D425E00991002FC55A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11A64AD625DAE17000713657 /* Info.plist in Resources */,
+				11A1D6D025E0098E002FC55A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +562,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = RYVG8BC9NZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CiPol/Info.plist;
@@ -573,6 +573,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -587,7 +588,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = RYVG8BC9NZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CiPol/Info.plist;
@@ -598,6 +599,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
