@@ -15,9 +15,9 @@ class BackgroundTesting {
     static var alertData = [String:String]();
     
     init(){
-        
+
     }
-    
+
     func runTests(prefHandler: PrefHandler, firstLaunch: Bool){
         
         var oldJobStatus = [String:String]();

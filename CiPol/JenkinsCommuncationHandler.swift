@@ -28,7 +28,9 @@ class JenkinsCommuncationHandler {
             
             jobData.setLastJobStatus(lastJobStatus: status["lastJobStatus"]!)
             jobData.setStatus(status: status["status"]!)
-            jobData.setLastPolled(lastPolled:status["lastPolled"]!)
+            if (status["lastPolled"]?.isEmpty == false){
+                jobData.setLastPolled(lastPolled:status["lastPolled"]!)
+            }
             preferences.setJenkinsJobData(jobName: jobName, jobData: jobData)
             
             preferences.savePreferences()
@@ -104,6 +106,9 @@ class JenkinsCommuncationHandler {
 
     func makeHttpCall(userName: String, password: String, urlString: String)->[String:Any]{
         
+        jenkinsOutput = [String: Any]()
+        testData = ""
+        
         print ("Json Output userName is \(userName)")
         print ("Json Output password is \(password)")
         
@@ -129,7 +134,7 @@ class JenkinsCommuncationHandler {
             request.setValue(authString, forHTTPHeaderField: "Authorization")
         }
         request.addValue("Application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 20
+        request.timeoutInterval = 8
         
         var httpResponse = 0
         let semaphore = DispatchSemaphore(value: 0)  //1. create a counting semaphore
@@ -188,7 +193,6 @@ class JenkinsCommuncationHandler {
         
         status["lastJobStatus"] = Utilties.testFailed
         status["status"] = Utilties.testInProgressStatus
-        status["lastPolled"] = Utilties.getTodayString()
         status["pollingStatus"] = "ok";
         
         if rawData.keys.contains("color"){
@@ -201,7 +205,13 @@ class JenkinsCommuncationHandler {
             } else {
                 status["lastJobStatus"] = "Unknown"
             }
+            status["lastPolled"] = Utilties.getTodayString()
             
+        } else {
+            status["lastJobStatus"] = "Error in polling"
+            status["status"] = "Error in polling"
+            status["pollingStatus"] = "Error in polling"
+            status["lastPolled"] = ""
         }
         
         if rawData.keys.contains("lastCompletedBuild"){

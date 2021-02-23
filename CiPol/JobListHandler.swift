@@ -55,8 +55,8 @@ class JobListHandler {
                 var addJob = true
                 let color = job["color"] ?? ""
                 var jobName = job["name"] ?? ""
-                
-                if (color == "blue" || color == "red") {
+
+                if (color.isEmpty == false) {
                     if currentJobList.contains(jobName){
                         let jobDetails = prefHandler.getJobDetails(jobName: jobName)
                         if serverName == jobDetails.getServerRecord() {

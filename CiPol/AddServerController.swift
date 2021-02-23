@@ -66,9 +66,9 @@ class AddServerController: NSViewController {
         
         let newServer = JenkinsServerPrefHandler()
         
-        if url.contains("https://") == false {
-            url = "http://" + url
-        }
+        //if url.contains("https://") == false {
+        //    url = "https://" + url
+        //}
         
         if Utilties.activeServerRecord.isEmpty == false{
             if (serverName != Utilties.activeServerRecord){

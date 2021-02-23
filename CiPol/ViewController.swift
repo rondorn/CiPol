@@ -41,7 +41,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         jobsTable.reloadData()
                 
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDataPressed), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reopenWindow), name: NSNotification.Name(rawValue: "zoom"), object: nil)
         collectDataFromBackground()
         
@@ -228,12 +228,12 @@ class ViewController: NSViewController, NSWindowDelegate  {
     }
     
     @objc func refreshData(){
-        loadPreferences()
-        let jenkinsHandler = JenkinsCommuncationHandler()
-        jenkinsHandler.updateAllJobs(preferences: prefHandler)
         
-        loadPreferences()
-        jobsTable.reloadData()
+        self.loadPreferences()
+        //let jenkinsHandler = JenkinsCommuncationHandler()
+        //jenkinsHandler.updateAllJobs(preferences: self.prefHandler)
+        self.loadPreferences()
+        self.jobsTable.reloadData()
     }
     
     func loadPreferences(){
@@ -268,8 +268,13 @@ class ViewController: NSViewController, NSWindowDelegate  {
             let displayName  = jobDetailsData["jobName"]! .replacingOccurrences(of: "/job/", with: "-")
             let regex = try! NSRegularExpression(pattern: "^-")
             let range = NSMakeRange(0, 1)
-            jobDetailsData["displayName"]  = regex.stringByReplacingMatches(in: displayName , options: [], range: range, withTemplate: "")
             
+            if (displayName.isEmpty == false){
+                jobDetailsData["displayName"]  = regex.stringByReplacingMatches(in: displayName , options: [], range: range, withTemplate: "")
+            } else {
+                jobDetailsData["displayName"]  = jobName
+            }
+            //jobDetailsData["displayName"] = jobName
             if (jobDetails.getLastJobStatus() != Utilties.testPassed){
                 if (jobDetails.getMonitoring() == true){
                     trayIcon = "CiPol 🔴"
@@ -364,7 +369,14 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     @IBAction func refreshDataPressed(_ sender: Any) {
         print ("Button refresh data pressed")
-        refreshData()
+        
+        DispatchQueue.global(qos: .background).async {
+            self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: true)
+            
+            DispatchQueue.main.async {
+                self.refreshData()
+            }
+        }
     }
     
     @IBAction func setPollingPressed(_ sender: Any) {
