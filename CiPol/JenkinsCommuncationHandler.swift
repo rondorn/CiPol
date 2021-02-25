@@ -113,9 +113,8 @@ class JenkinsCommuncationHandler {
         print ("Json Output password is \(password)")
         
         
-        let cleanUrlString = urlString.replacingOccurrences(of: " ", with: "%20")
-        
-        print ("Json Output urlString is \(cleanUrlString)")
+        //let cleanUrlString = urlString.replacingOccurrences(of: " ", with: "%20")
+
         var authString = ""
         
         if (userName.isEmpty == false){
@@ -125,7 +124,9 @@ class JenkinsCommuncationHandler {
             print ("Json Output userName authString is \(authString)")
         }
         
-        let Url = String(format: cleanUrlString)
+        var Url = String(format: urlString)
+        Url = Url.replacingOccurrences(of: " ", with: "%20")
+        print ("Json Output urlString is \(Url)")
         let serviceUrl = URL(string: Url)
         var request = URLRequest(url: serviceUrl!)
 
@@ -208,15 +209,16 @@ class JenkinsCommuncationHandler {
             status["lastPolled"] = Utilties.getTodayString()
             
         } else {
-            status["lastJobStatus"] = "Error in polling"
-            status["status"] = "Error in polling"
-            status["pollingStatus"] = "Error in polling"
+            status["lastJobStatus"] = Utilties.testErrorPolling
+            status["status"] = Utilties.testErrorPolling
+            status["pollingStatus"] = Utilties.testErrorPolling
             status["lastPolled"] = ""
         }
         
+        let placeHolder = [String:Any]();
+        
         if rawData.keys.contains("lastCompletedBuild"){
-            print ("lastCompletedBuild data is \(rawData["lastBuild"] ?? "Nothing")")
-            let lastBuildData = rawData["lastCompletedBuild"] as! [String:Any]
+            let lastBuildData = rawData["lastCompletedBuild"] as? [String:Any] ?? placeHolder
             if lastBuildData.keys.contains("number"){
                 lastCompletedBuildNumber = lastBuildData["number"] as! Int
             }
@@ -226,8 +228,8 @@ class JenkinsCommuncationHandler {
             print ("lastBuild data is missing")
         }
         
-        if rawData.keys.contains("lastBuild"){
-            let lastBuildData = rawData["lastBuild"] as! [String:Any]
+        if rawData.keys.contains("lastBuild") {
+            let lastBuildData = rawData["lastBuild"] as? [String:Any] ?? placeHolder
             if lastBuildData.keys.contains("number"){
                 lastBuildNumber = lastBuildData["number"] as! Int
             }
@@ -235,11 +237,15 @@ class JenkinsCommuncationHandler {
             print ("lastBuild data is missing")
         }
         
-        
+        print ("lastCompletedBuildNumber = \(lastCompletedBuildNumber) lastBuildNumber = \(lastBuildNumber)")
         if (lastCompletedBuildNumber != 0 && lastBuildNumber != 0){
             if (lastCompletedBuildNumber == lastBuildNumber){
                 status["status"] = Utilties.tesNotRunningStatus
+            } else {
+                status["status"] = Utilties.testInProgressStatus
             }
+        } else {
+            status["status"] = Utilties.tesNotRunningStatus
         }
         
         return status
@@ -252,4 +258,3 @@ class JenkinsCommuncationHandler {
     }
 
 }
-

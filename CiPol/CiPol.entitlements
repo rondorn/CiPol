@@ -10,7 +10,7 @@
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)ML4263UA5L.com.rdorn.CiPol</string>
+		<string>RYVG8BC9NZ.com.rdorn.CiPol</string>
 	</array>
 </dict>
 </plist>

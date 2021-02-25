@@ -13,7 +13,7 @@ class PasswordStorage {
     let keychain = KeychainSwift()
 
     init(){
-        keychain.accessGroup = "ML4263UA5L.com.rdorn.CiPol"
+        keychain.accessGroup = "RYVG8BC9NZ.com.rdorn.CiPol"
     }
     
     func setPassword(serverName: String, password: String){

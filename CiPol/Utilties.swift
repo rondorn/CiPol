@@ -13,6 +13,7 @@ class Utilties {
     static let testFailed = "Failing"
     static let testInProgressStatus = "In Progress"
     static let tesNotRunningStatus = "Idle"
+    static let testErrorPolling = "Error in polling"
     static var backgroundWaitInSeconds :UInt32 = 0
     static var activeServerRecord = ""
     
