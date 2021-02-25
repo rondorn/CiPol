@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112226EB25E6CA5300CBF34E /* Pods_CiPol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */; };
-		112226EC25E6CA5300CBF34E /* Pods_CiPol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1104DA7C25E842C900E4A585 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		1104DA7F25E842CC00E4A585 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		1104DA8D25E844B000E4A585 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1104DA9F25E8476B00E4A585 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104DA9E25E8476B00E4A585 /* KeychainSwift.swift */; };
+		112226EC25E6CA5300CBF34E /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11A1D6D025E0098E002FC55A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A8B25DAE0BD00713657 /* Info.plist */; };
 		11A64A7725DAE0BC00713657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A7625DAE0BC00713657 /* AppDelegate.swift */; };
 		11A64A7925DAE0BC00713657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A7825DAE0BC00713657 /* ViewController.swift */; };
@@ -58,7 +61,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				112226EC25E6CA5300CBF34E /* Pods_CiPol.framework in Embed Frameworks */,
+				1104DA8D25E844B000E4A585 /* (null) in Embed Frameworks */,
+				112226EC25E6CA5300CBF34E /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1104DA9E25E8476B00E4A585 /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		11A64A7325DAE0BC00713657 /* CiPol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiPol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A64A7625DAE0BC00713657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11A64A7825DAE0BC00713657 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,9 +100,6 @@
 		11A64AB825DAE16100713657 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		11A64AD025DAE17000713657 /* PrefHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefHandlerTest.swift; sourceTree = "<group>"; };
 		11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsCommuncationHandlerTest.swift; sourceTree = "<group>"; };
-		7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.release.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.release.xcconfig"; sourceTree = "<group>"; };
-		E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.debug.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.debug.xcconfig"; sourceTree = "<group>"; };
-		EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CiPol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112226EB25E6CA5300CBF34E /* Pods_CiPol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +135,6 @@
 				11A64A9325DAE0BD00713657 /* CiPolUITests */,
 				11A64A7425DAE0BC00713657 /* Products */,
 				2C22CE52FDB072E13128A0AC /* Pods */,
-				FFF3C0F03FD785B006EC521C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +171,7 @@
 				11A64AB825DAE16100713657 /* Toast.swift */,
 				11A64AAD25DAE16000713657 /* Utilties.swift */,
 				11A64A7825DAE0BC00713657 /* ViewController.swift */,
+				1104DA9E25E8476B00E4A585 /* KeychainSwift.swift */,
 			);
 			path = CiPol;
 			sourceTree = "<group>";
@@ -198,18 +199,8 @@
 		2C22CE52FDB072E13128A0AC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */,
-				7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FFF3C0F03FD785B006EC521C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,11 +210,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11A64A9925DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPol" */;
 			buildPhases = (
-				6F662E2F5B5547F4D82E2199 /* [CP] Check Pods Manifest.lock */,
 				11A64A6F25DAE0BC00713657 /* Sources */,
 				11A64A7025DAE0BC00713657 /* Frameworks */,
 				11A64A7125DAE0BC00713657 /* Resources */,
-				EB33ED3CBF903DD71A398E05 /* [CP] Embed Pods Frameworks */,
 				112226ED25E6CA5300CBF34E /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -318,8 +307,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1104DA7C25E842C900E4A585 /* (null) in Resources */,
 				11A64A7B25DAE0BD00713657 /* Assets.xcassets in Resources */,
 				11A64A7E25DAE0BD00713657 /* Main.storyboard in Resources */,
+				1104DA7F25E842CC00E4A585 /* (null) in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,48 +331,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		6F662E2F5B5547F4D82E2199 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CiPol-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB33ED3CBF903DD71A398E05 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		11A64A6F25DAE0BC00713657 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -396,6 +345,7 @@
 				11A64AC225DAE16100713657 /* AddJobController.swift in Sources */,
 				11A64ACB25DAE16100713657 /* Toast.swift in Sources */,
 				11A64ABE25DAE16100713657 /* NotificationHandler.swift in Sources */,
+				1104DA9F25E8476B00E4A585 /* KeychainSwift.swift in Sources */,
 				11A64AC925DAE16100713657 /* PasswordStorage.swift in Sources */,
 				11A64AC725DAE16100713657 /* JenkinsCommuncationHandler.swift in Sources */,
 				11A64ACA25DAE16100713657 /* PrefHandler.swift in Sources */,
@@ -568,7 +518,6 @@
 		};
 		11A64A9A25DAE0BD00713657 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -594,7 +543,6 @@
 		};
 		11A64A9B25DAE0BD00713657 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
