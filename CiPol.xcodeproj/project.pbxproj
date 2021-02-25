@@ -1,0 +1,747 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		112226EB25E6CA5300CBF34E /* Pods_CiPol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */; };
+		112226EC25E6CA5300CBF34E /* Pods_CiPol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		11A1D6D025E0098E002FC55A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A8B25DAE0BD00713657 /* Info.plist */; };
+		11A64A7725DAE0BC00713657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A7625DAE0BC00713657 /* AppDelegate.swift */; };
+		11A64A7925DAE0BC00713657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A7825DAE0BC00713657 /* ViewController.swift */; };
+		11A64A7B25DAE0BD00713657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A7A25DAE0BD00713657 /* Assets.xcassets */; };
+		11A64A7E25DAE0BD00713657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A64A7C25DAE0BD00713657 /* Main.storyboard */; };
+		11A64A8A25DAE0BD00713657 /* CiPolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A8925DAE0BD00713657 /* CiPolTests.swift */; };
+		11A64A9525DAE0BD00713657 /* CiPolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64A9425DAE0BD00713657 /* CiPolUITests.swift */; };
+		11A64ABA25DAE16100713657 /* AddServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AA625DAE16000713657 /* AddServerController.swift */; };
+		11A64ABC25DAE16100713657 /* ChangeTimeIntervalHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AA825DAE16000713657 /* ChangeTimeIntervalHandler.swift */; };
+		11A64ABD25DAE16100713657 /* JobListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AA925DAE16000713657 /* JobListHandler.swift */; };
+		11A64ABE25DAE16100713657 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAA25DAE16000713657 /* NotificationHandler.swift */; };
+		11A64ABF25DAE16100713657 /* JenkinsServerPrefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAB25DAE16000713657 /* JenkinsServerPrefHandler.swift */; };
+		11A64AC025DAE16100713657 /* ServerAdminController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAC25DAE16000713657 /* ServerAdminController.swift */; };
+		11A64AC125DAE16100713657 /* Utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAD25DAE16000713657 /* Utilties.swift */; };
+		11A64AC225DAE16100713657 /* AddJobController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAE25DAE16000713657 /* AddJobController.swift */; };
+		11A64AC325DAE16100713657 /* BackgroundTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AAF25DAE16000713657 /* BackgroundTesting.swift */; };
+		11A64AC625DAE16100713657 /* JenkinsJobPrefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB325DAE16100713657 /* JenkinsJobPrefHandler.swift */; };
+		11A64AC725DAE16100713657 /* JenkinsCommuncationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB425DAE16100713657 /* JenkinsCommuncationHandler.swift */; };
+		11A64AC925DAE16100713657 /* PasswordStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB625DAE16100713657 /* PasswordStorage.swift */; };
+		11A64ACA25DAE16100713657 /* PrefHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB725DAE16100713657 /* PrefHandler.swift */; };
+		11A64ACB25DAE16100713657 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AB825DAE16100713657 /* Toast.swift */; };
+		11A64AD425DAE17000713657 /* PrefHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AD025DAE17000713657 /* PrefHandlerTest.swift */; };
+		11A64AD525DAE17000713657 /* JenkinsCommuncationHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11A64A8625DAE0BD00713657 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11A64A6B25DAE0BC00713657 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11A64A7225DAE0BC00713657;
+			remoteInfo = CiPol;
+		};
+		11A64A9125DAE0BD00713657 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11A64A6B25DAE0BC00713657 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11A64A7225DAE0BC00713657;
+			remoteInfo = CiPol;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		112226ED25E6CA5300CBF34E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				112226EC25E6CA5300CBF34E /* Pods_CiPol.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		11A64A7325DAE0BC00713657 /* CiPol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiPol.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A64A7625DAE0BC00713657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		11A64A7825DAE0BC00713657 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11A64A7A25DAE0BD00713657 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11A64A7D25DAE0BD00713657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11A64A7F25DAE0BD00713657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A64A8025DAE0BD00713657 /* CiPol.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CiPol.entitlements; sourceTree = "<group>"; };
+		11A64A8525DAE0BD00713657 /* CiPolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CiPolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A64A8925DAE0BD00713657 /* CiPolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiPolTests.swift; sourceTree = "<group>"; };
+		11A64A8B25DAE0BD00713657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A64A9025DAE0BD00713657 /* CiPolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CiPolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		11A64A9425DAE0BD00713657 /* CiPolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiPolUITests.swift; sourceTree = "<group>"; };
+		11A64A9625DAE0BD00713657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11A64AA625DAE16000713657 /* AddServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddServerController.swift; sourceTree = "<group>"; };
+		11A64AA825DAE16000713657 /* ChangeTimeIntervalHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTimeIntervalHandler.swift; sourceTree = "<group>"; };
+		11A64AA925DAE16000713657 /* JobListHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobListHandler.swift; sourceTree = "<group>"; };
+		11A64AAA25DAE16000713657 /* NotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		11A64AAB25DAE16000713657 /* JenkinsServerPrefHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsServerPrefHandler.swift; sourceTree = "<group>"; };
+		11A64AAC25DAE16000713657 /* ServerAdminController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAdminController.swift; sourceTree = "<group>"; };
+		11A64AAD25DAE16000713657 /* Utilties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilties.swift; sourceTree = "<group>"; };
+		11A64AAE25DAE16000713657 /* AddJobController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJobController.swift; sourceTree = "<group>"; };
+		11A64AAF25DAE16000713657 /* BackgroundTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTesting.swift; sourceTree = "<group>"; };
+		11A64AB325DAE16100713657 /* JenkinsJobPrefHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsJobPrefHandler.swift; sourceTree = "<group>"; };
+		11A64AB425DAE16100713657 /* JenkinsCommuncationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsCommuncationHandler.swift; sourceTree = "<group>"; };
+		11A64AB625DAE16100713657 /* PasswordStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordStorage.swift; sourceTree = "<group>"; };
+		11A64AB725DAE16100713657 /* PrefHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefHandler.swift; sourceTree = "<group>"; };
+		11A64AB825DAE16100713657 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		11A64AD025DAE17000713657 /* PrefHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefHandlerTest.swift; sourceTree = "<group>"; };
+		11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JenkinsCommuncationHandlerTest.swift; sourceTree = "<group>"; };
+		7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.release.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.release.xcconfig"; sourceTree = "<group>"; };
+		E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CiPol.debug.xcconfig"; path = "Target Support Files/Pods-CiPol/Pods-CiPol.debug.xcconfig"; sourceTree = "<group>"; };
+		EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CiPol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11A64A7025DAE0BC00713657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112226EB25E6CA5300CBF34E /* Pods_CiPol.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A64A8225DAE0BD00713657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A64A8D25DAE0BD00713657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11A64A6A25DAE0BC00713657 = {
+			isa = PBXGroup;
+			children = (
+				11A64A7525DAE0BC00713657 /* CiPol */,
+				11A64A8825DAE0BD00713657 /* CiPolTests */,
+				11A64A9325DAE0BD00713657 /* CiPolUITests */,
+				11A64A7425DAE0BC00713657 /* Products */,
+				2C22CE52FDB072E13128A0AC /* Pods */,
+				FFF3C0F03FD785B006EC521C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		11A64A7425DAE0BC00713657 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11A64A7325DAE0BC00713657 /* CiPol.app */,
+				11A64A8525DAE0BD00713657 /* CiPolTests.xctest */,
+				11A64A9025DAE0BD00713657 /* CiPolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11A64A7525DAE0BC00713657 /* CiPol */ = {
+			isa = PBXGroup;
+			children = (
+				11A64AAE25DAE16000713657 /* AddJobController.swift */,
+				11A64AA625DAE16000713657 /* AddServerController.swift */,
+				11A64A7625DAE0BC00713657 /* AppDelegate.swift */,
+				11A64A7A25DAE0BD00713657 /* Assets.xcassets */,
+				11A64AAF25DAE16000713657 /* BackgroundTesting.swift */,
+				11A64AA825DAE16000713657 /* ChangeTimeIntervalHandler.swift */,
+				11A64A8025DAE0BD00713657 /* CiPol.entitlements */,
+				11A64A7F25DAE0BD00713657 /* Info.plist */,
+				11A64AB425DAE16100713657 /* JenkinsCommuncationHandler.swift */,
+				11A64AB325DAE16100713657 /* JenkinsJobPrefHandler.swift */,
+				11A64AAB25DAE16000713657 /* JenkinsServerPrefHandler.swift */,
+				11A64AA925DAE16000713657 /* JobListHandler.swift */,
+				11A64A7C25DAE0BD00713657 /* Main.storyboard */,
+				11A64AAA25DAE16000713657 /* NotificationHandler.swift */,
+				11A64AB625DAE16100713657 /* PasswordStorage.swift */,
+				11A64AB725DAE16100713657 /* PrefHandler.swift */,
+				11A64AAC25DAE16000713657 /* ServerAdminController.swift */,
+				11A64AB825DAE16100713657 /* Toast.swift */,
+				11A64AAD25DAE16000713657 /* Utilties.swift */,
+				11A64A7825DAE0BC00713657 /* ViewController.swift */,
+			);
+			path = CiPol;
+			sourceTree = "<group>";
+		};
+		11A64A8825DAE0BD00713657 /* CiPolTests */ = {
+			isa = PBXGroup;
+			children = (
+				11A64AD125DAE17000713657 /* JenkinsCommuncationHandlerTest.swift */,
+				11A64AD025DAE17000713657 /* PrefHandlerTest.swift */,
+				11A64A8925DAE0BD00713657 /* CiPolTests.swift */,
+				11A64A8B25DAE0BD00713657 /* Info.plist */,
+			);
+			path = CiPolTests;
+			sourceTree = "<group>";
+		};
+		11A64A9325DAE0BD00713657 /* CiPolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11A64A9425DAE0BD00713657 /* CiPolUITests.swift */,
+				11A64A9625DAE0BD00713657 /* Info.plist */,
+			);
+			path = CiPolUITests;
+			sourceTree = "<group>";
+		};
+		2C22CE52FDB072E13128A0AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */,
+				7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFF3C0F03FD785B006EC521C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE9D253EDCF8ACB61F1B7B22 /* Pods_CiPol.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11A64A7225DAE0BC00713657 /* CiPol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A64A9925DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPol" */;
+			buildPhases = (
+				6F662E2F5B5547F4D82E2199 /* [CP] Check Pods Manifest.lock */,
+				11A64A6F25DAE0BC00713657 /* Sources */,
+				11A64A7025DAE0BC00713657 /* Frameworks */,
+				11A64A7125DAE0BC00713657 /* Resources */,
+				EB33ED3CBF903DD71A398E05 /* [CP] Embed Pods Frameworks */,
+				112226ED25E6CA5300CBF34E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CiPol;
+			productName = CiPol;
+			productReference = 11A64A7325DAE0BC00713657 /* CiPol.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11A64A8425DAE0BD00713657 /* CiPolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A64A9C25DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPolTests" */;
+			buildPhases = (
+				11A64A8125DAE0BD00713657 /* Sources */,
+				11A64A8225DAE0BD00713657 /* Frameworks */,
+				11A64A8325DAE0BD00713657 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11A64A8725DAE0BD00713657 /* PBXTargetDependency */,
+			);
+			name = CiPolTests;
+			productName = CiPolTests;
+			productReference = 11A64A8525DAE0BD00713657 /* CiPolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11A64A8F25DAE0BD00713657 /* CiPolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11A64A9F25DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPolUITests" */;
+			buildPhases = (
+				11A64A8C25DAE0BD00713657 /* Sources */,
+				11A64A8D25DAE0BD00713657 /* Frameworks */,
+				11A64A8E25DAE0BD00713657 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11A64A9225DAE0BD00713657 /* PBXTargetDependency */,
+			);
+			name = CiPolUITests;
+			productName = CiPolUITests;
+			productReference = 11A64A9025DAE0BD00713657 /* CiPolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11A64A6B25DAE0BC00713657 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					11A64A7225DAE0BC00713657 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					11A64A8425DAE0BD00713657 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 11A64A7225DAE0BC00713657;
+					};
+					11A64A8F25DAE0BD00713657 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 11A64A7225DAE0BC00713657;
+					};
+				};
+			};
+			buildConfigurationList = 11A64A6E25DAE0BC00713657 /* Build configuration list for PBXProject "CiPol" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11A64A6A25DAE0BC00713657;
+			productRefGroup = 11A64A7425DAE0BC00713657 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11A64A7225DAE0BC00713657 /* CiPol */,
+				11A64A8425DAE0BD00713657 /* CiPolTests */,
+				11A64A8F25DAE0BD00713657 /* CiPolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11A64A7125DAE0BC00713657 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A64A7B25DAE0BD00713657 /* Assets.xcassets in Resources */,
+				11A64A7E25DAE0BD00713657 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A64A8325DAE0BD00713657 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A1D6D025E0098E002FC55A /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A64A8E25DAE0BD00713657 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F662E2F5B5547F4D82E2199 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CiPol-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB33ED3CBF903DD71A398E05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CiPol/Pods-CiPol-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11A64A6F25DAE0BC00713657 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A64ABD25DAE16100713657 /* JobListHandler.swift in Sources */,
+				11A64A7925DAE0BC00713657 /* ViewController.swift in Sources */,
+				11A64AC625DAE16100713657 /* JenkinsJobPrefHandler.swift in Sources */,
+				11A64AC125DAE16100713657 /* Utilties.swift in Sources */,
+				11A64AC025DAE16100713657 /* ServerAdminController.swift in Sources */,
+				11A64AC325DAE16100713657 /* BackgroundTesting.swift in Sources */,
+				11A64AC225DAE16100713657 /* AddJobController.swift in Sources */,
+				11A64ACB25DAE16100713657 /* Toast.swift in Sources */,
+				11A64ABE25DAE16100713657 /* NotificationHandler.swift in Sources */,
+				11A64AC925DAE16100713657 /* PasswordStorage.swift in Sources */,
+				11A64AC725DAE16100713657 /* JenkinsCommuncationHandler.swift in Sources */,
+				11A64ACA25DAE16100713657 /* PrefHandler.swift in Sources */,
+				11A64ABC25DAE16100713657 /* ChangeTimeIntervalHandler.swift in Sources */,
+				11A64A7725DAE0BC00713657 /* AppDelegate.swift in Sources */,
+				11A64ABF25DAE16100713657 /* JenkinsServerPrefHandler.swift in Sources */,
+				11A64ABA25DAE16100713657 /* AddServerController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A64A8125DAE0BD00713657 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A64AD525DAE17000713657 /* JenkinsCommuncationHandlerTest.swift in Sources */,
+				11A64AD425DAE17000713657 /* PrefHandlerTest.swift in Sources */,
+				11A64A8A25DAE0BD00713657 /* CiPolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11A64A8C25DAE0BD00713657 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11A64A9525DAE0BD00713657 /* CiPolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11A64A8725DAE0BD00713657 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11A64A7225DAE0BC00713657 /* CiPol */;
+			targetProxy = 11A64A8625DAE0BD00713657 /* PBXContainerItemProxy */;
+		};
+		11A64A9225DAE0BD00713657 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11A64A7225DAE0BC00713657 /* CiPol */;
+			targetProxy = 11A64A9125DAE0BD00713657 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		11A64A7C25DAE0BD00713657 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11A64A7D25DAE0BD00713657 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11A64A9725DAE0BD00713657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		11A64A9825DAE0BD00713657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		11A64A9A25DAE0BD00713657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8BF97626E508CA511C62F56 /* Pods-CiPol.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CiPol/CiPol.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = RYVG8BC9NZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = CiPol/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPol;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = CiPol;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		11A64A9B25DAE0BD00713657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B7FA6C0C03E0669AFB8AAC1 /* Pods-CiPol.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CiPol/CiPol.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = RYVG8BC9NZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = CiPol/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPol;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		11A64A9D25DAE0BD00713657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = RYVG8BC9NZ;
+				INFOPLIST_FILE = CiPolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CiPol.app/Contents/MacOS/CiPol";
+			};
+			name = Debug;
+		};
+		11A64A9E25DAE0BD00713657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = RYVG8BC9NZ;
+				INFOPLIST_FILE = CiPolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CiPol.app/Contents/MacOS/CiPol";
+			};
+			name = Release;
+		};
+		11A64AA025DAE0BD00713657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = RYVG8BC9NZ;
+				INFOPLIST_FILE = CiPolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CiPol;
+			};
+			name = Debug;
+		};
+		11A64AA125DAE0BD00713657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = RYVG8BC9NZ;
+				INFOPLIST_FILE = CiPolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdorn.CiPolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = CiPol;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11A64A6E25DAE0BC00713657 /* Build configuration list for PBXProject "CiPol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A64A9725DAE0BD00713657 /* Debug */,
+				11A64A9825DAE0BD00713657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11A64A9925DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A64A9A25DAE0BD00713657 /* Debug */,
+				11A64A9B25DAE0BD00713657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11A64A9C25DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A64A9D25DAE0BD00713657 /* Debug */,
+				11A64A9E25DAE0BD00713657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11A64A9F25DAE0BD00713657 /* Build configuration list for PBXNativeTarget "CiPolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A64AA025DAE0BD00713657 /* Debug */,
+				11A64AA125DAE0BD00713657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11A64A6B25DAE0BC00713657 /* Project object */;
+}
