@@ -10,12 +10,12 @@ The jenkins servers at my company do a good job of notifying the developers who 
 # Setup
 
 ## Server Setup
-To start with you must define a Jenkins server. Click the ‘Servers’ button on the main window. This will open up the Server Admin screen. From there click the ‘Add Servers’ button. 
+To start with, you must define a Jenkins server. Click the ‘Servers’ button on the main window. This will open up the Server Admin screen. From there click the ‘Add Servers’ button. 
 
 From here you can pick any ‘Server Name’ of your choosing. The url should be the form of
-“https://myjenkinsServer/mycompany.net’. If there is a specific subdirectory you are interested in scanning, you can add that on here, but it is not required.
+'https://myjenkinsServer/mycompany.net’. If there is a specific subdirectory you are interested in scanning, you can add that on here, but it is not required.
 
-Username and API Token are optional. If your server does not require authentication to view jobs, you can leave these blank. If it is required, you must use an API Token issued by your Jenkins server. All tokens are stored securely in your Mac OS keychain. To get an API Token from your Jenkins server, go to your user settings and then go to Configure, from there you should see an API Token section where you can generate a token.
+Username and API Token are optional. If your server does not require authentication to view jobs, you can leave these blank. If it is required, you must use an API Token issued by your Jenkins server. All tokens are stored securely in your Mac OS keychain. To get an API Token from your Jenkins server, go to your User Settings and then go to Configure, from there you should see an API Token section where you can generate a token.
 
 To modify an entry, you can double click on a server line and make changes.
 
@@ -25,8 +25,6 @@ To Delete an entry, you can right click and select Delete.
 Once a server is set up, you can now set up a job. To set up a job click the ‘Add Job’ button. From there you will see two pull down menus. For the server menu select one of the servers you have just set up. This will populate the job menu with available choices scanned from your server.
 
 If a choice is represented as /job/{job name}, it means that it is a folder and not a direct job. If you chose one of these entries then a new pull down menu will appear with the job present under that folder. Up to 4 menu levels are supported. Once you have chosen the job you wish to monitor, click ‘Save’
-
-The menu will only be populated with folders and jobs that have passing or failing tests. If a test is disabled it will not appear in the menu.
 
 # Main Screen
 The following features are available on the main screen
