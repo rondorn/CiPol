@@ -76,8 +76,10 @@ class Utilties {
         
         let date = Date()
         let dateFormatter = DateFormatter()
-
-        dateFormatter.dateFormat = "HH:mm a MM-dd "
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .short
+        
+        dateFormatter.dateFormat = "hh:mm a MM-dd "
         let today_string = dateFormatter.string(from: date)
         
         return today_string
