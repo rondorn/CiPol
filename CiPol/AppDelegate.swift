@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         message += "version " + version + " (" + build + ")\n"
         message += "Written by Ron Dorn\n"
         message += "©All Rights Reserved\n"
-        message += "Distributed via GPL License\n"
+        message += "Distributed via GPLv2 License\n"
         
         _ = Toast.displayInfo(title: "", message: message)
     }

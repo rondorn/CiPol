@@ -74,25 +74,9 @@ class Utilties {
     
     static func getTodayString() -> String{
         
-        /*
-       let date = Date()
-       let calender = Calendar.current
-       let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-
-       let year = components.year
-       let month = components.month
-       let day = components.day
-       let hour = components.hour
-       let minute = components.minute
-
-        let today_string = String(hour!)  + ":" + String(minute!) + ":" + " " + String(month!) + "-" + String(day!) + "-" + String(year!)
-    
-        */
         let date = Date()
         let dateFormatter = DateFormatter()
-        //dateFormatter.dateStyle = .medium
-        //dateFormatter.timeStyle = .short
-        //dateFormatter.locale = Locale.current
+
         dateFormatter.dateFormat = "HH:mm a MM-dd "
         let today_string = dateFormatter.string(from: date)
         

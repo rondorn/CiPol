@@ -234,12 +234,12 @@ class JenkinsCommuncationHandler {
                 print ("lastRunTime = timeDiff \(jobName) = \(timeDiff)")
                 
                 let dateComponentsFormatter = DateComponentsFormatter()
-                dateComponentsFormatter.allowedUnits = [.second, .minute, .hour, .day, .month, .year]
+                dateComponentsFormatter.allowedUnits = [.second, .minute, .hour, .day]
                 dateComponentsFormatter.maximumUnitCount = 1
                 dateComponentsFormatter.unitsStyle = .full
                 
                 status["timeDiffString"] = dateComponentsFormatter.string(from: Date(), to: Date(timeIntervalSinceNow: timeDiff))  // "1 month"
-                
+                //print ("Convert timeDiff \(timeDiff) to be \(status["timeDiffString"])")
                 
                 status["timeDiffDouble"] = String(timeDiff)
             }
