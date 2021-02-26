@@ -78,9 +78,9 @@ class AddJobController: NSViewController {
             print ("newJobName is \(newJobName) - serverName is \(serverName)")
             newJob.setJobName(jobName: newJobName)
             newJob.setServerRecord(serverRecord: serverName)
-            newJob.setStatus(status: "Unknown")
-            newJob.setLastPolled(lastPolled: "Not Polled")
-            newJob.setLastJobStatus(lastJobStatus: "Unknown")
+            newJob.setStatus(status: Utilties.testUnknown)
+            newJob.setLastPolled(lastPolled: Utilties.testNotPolled)
+            newJob.setLastJobStatus(lastJobStatus: Utilties.testUnknown)
             newJob.setMonitoring(monitoring: true)
             
             let testHandler = JenkinsCommuncationHandler();
@@ -93,7 +93,7 @@ class AddJobController: NSViewController {
                 prefHandler.savePreferences()
                 prefHandler.loadPreferences()
                 
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "jobAdded"), object: nil)
                 
                 self.dismiss(self)
             } else {

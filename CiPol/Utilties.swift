@@ -14,8 +14,19 @@ class Utilties {
     static let testInProgressStatus = "In Progress"
     static let tesNotRunningStatus = "Idle"
     static let testErrorPolling = "Error in polling"
+    static let testNotPolled = "Not Polled"
+    static let testUnknown = "Unknown"
+    
     static var backgroundWaitInSeconds :UInt32 = 0
     static var activeServerRecord = ""
+    
+    static func cleanUpURL(url: String)->String {
+        
+        var cleanUrl = String(format: url)
+        cleanUrl = cleanUrl.replacingOccurrences(of: " ", with: "%20")
+        
+        return cleanUrl
+    }
     
     static func getBackgroundWaitInSeconds()->UInt32{
         

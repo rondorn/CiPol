@@ -113,8 +113,6 @@ class JenkinsCommuncationHandler {
         print ("Json Output password is \(password)")
         
         
-        //let cleanUrlString = urlString.replacingOccurrences(of: " ", with: "%20")
-
         var authString = ""
         
         if (userName.isEmpty == false){
@@ -124,8 +122,8 @@ class JenkinsCommuncationHandler {
             print ("Json Output userName authString is \(authString)")
         }
         
-        var Url = String(format: urlString)
-        Url = Url.replacingOccurrences(of: " ", with: "%20")
+        let Url = Utilties.cleanUpURL(url: urlString)
+        
         print ("Json Output urlString is \(Url)")
         let serviceUrl = URL(string: Url)
         var request = URLRequest(url: serviceUrl!)

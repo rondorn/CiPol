@@ -58,8 +58,12 @@ class NotificationHandler {
 
         if jobStatus == Utilties.testPassed {
             iconText = "\(icon) \(jobName) Passing"
-        } else {
+            
+        } else if jobStatus == Utilties.testFailed {
             iconText = "\(icon) \(jobName) Failing"
+        
+        } else {
+            iconText = "\(icon) \(jobName) Unknown"
         }
         
         let message = "Jenkins job \(jobName) now \(jobStatus)"

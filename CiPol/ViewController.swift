@@ -42,6 +42,9 @@ class ViewController: NSViewController, NSWindowDelegate  {
         jobsTable.reloadData()
                 
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataPressed), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshNewJob), name: NSNotification.Name(rawValue: "jobAdded"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reopenWindow), name: NSNotification.Name(rawValue: "zoom"), object: nil)
         collectDataFromBackground()
         
@@ -114,7 +117,11 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         jenkinsUrl = jenkinsUrl.replacingOccurrences(of: "/job//job/", with: "/job/")
         
+        jenkinsUrl = Utilties.cleanUpURL(url: jenkinsUrl)
+        
+        print ("Double click, opening url \(jenkinsUrl)")
         guard let url = URL(string: jenkinsUrl) else { return }
+        print ("Double click, launching url \(jenkinsUrl)")
         NSWorkspace.shared.open([url],
                                 withAppBundleIdentifier:"com.apple.Safari",
                                 options: [],
@@ -230,8 +237,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
     @objc func refreshData(){
         
         self.loadPreferences()
-        //let jenkinsHandler = JenkinsCommuncationHandler()
-        //jenkinsHandler.updateAllJobs(preferences: self.prefHandler)
         self.loadPreferences()
         self.jobsTable.reloadData()
     }
@@ -377,6 +382,20 @@ class ViewController: NSViewController, NSWindowDelegate  {
                 self.refreshData()
             }
         }
+    }
+    
+    @IBAction func refreshNewJob(_ sender: Any) {
+        
+        self.prefHandler.loadPreferences()
+        
+        DispatchQueue.global(qos: .background).async {
+            self.testingHandler.runNewTests(prefHandler: self.prefHandler, firstLaunch: true)
+            
+            DispatchQueue.main.async {
+                self.refreshData()
+            }
+        }
+        
     }
     
     @IBAction func setPollingPressed(_ sender: Any) {

@@ -18,6 +18,34 @@ class BackgroundTesting {
 
     }
 
+    func runNewTests(prefHandler: PrefHandler, firstLaunch: Bool){
+        
+        print ("Entered runNewTests")
+        let jobs = prefHandler.getListOfJobs()
+        let jenkinsHandler = JenkinsCommuncationHandler()
+        
+        for jobName in jobs {
+            
+            let jobData = prefHandler.getJobDetails(jobName: jobName)
+            
+            print ("runNewTests lastPolled for job \(jobName) equals \(jobData.getLastPolled())")
+            if jobData.getLastPolled() == Utilties.testNotPolled {
+                
+                print ("runNewTests updated job \(jobName)")
+                let status = jenkinsHandler.getJobResults(preferences: prefHandler, jobData: jobData)
+                jobData.setLastJobStatus(lastJobStatus: status["lastJobStatus"]!)
+                jobData.setStatus(status: status["status"]!)
+                if (status["lastPolled"]?.isEmpty == false){
+                    jobData.setLastPolled(lastPolled:status["lastPolled"]!)
+                }
+                prefHandler.setJenkinsJobData(jobName: jobName, jobData: jobData)
+                
+            }
+        }
+        
+        prefHandler.savePreferences()
+    }
+    
     func runTests(prefHandler: PrefHandler, firstLaunch: Bool){
         
         var oldJobStatus = [String:String]();

@@ -26,7 +26,7 @@ class PrefHandler {
             preferenceFileLocation = documentURL.appendingPathComponent("ci-monitor.json")
         }
         
-        print ("Writing pref file to \(preferenceFileLocation)")
+        print ("Writing pref file to \(preferenceFileLocation)") //test
     }
     
     func setSortingField(value: String){
