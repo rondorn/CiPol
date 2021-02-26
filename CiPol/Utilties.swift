@@ -90,9 +90,10 @@ class Utilties {
         */
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        dateFormatter.locale = Locale.current
+        //dateFormatter.dateStyle = .medium
+        //dateFormatter.timeStyle = .short
+        //dateFormatter.locale = Locale.current
+        dateFormatter.dateFormat = "HH:mm a MM-dd "
         let today_string = dateFormatter.string(from: date)
         
         return today_string

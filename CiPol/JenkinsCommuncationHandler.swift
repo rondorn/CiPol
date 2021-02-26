@@ -28,11 +28,12 @@ class JenkinsCommuncationHandler {
             
             jobData.setLastJobStatus(lastJobStatus: status["lastJobStatus"]!)
             jobData.setStatus(status: status["status"]!)
+            jobData.setLastTested(lastTested: status["timeDiffString"] ?? "")
+            jobData.setLastTestedDiff(lastTestedDiff: status["timeDiffDouble"] ?? "0")
             if (status["lastPolled"]?.isEmpty == false){
                 jobData.setLastPolled(lastPolled:status["lastPolled"]!)
             }
             preferences.setJenkinsJobData(jobName: jobName, jobData: jobData)
-            
             preferences.savePreferences()
             
         }
@@ -98,7 +99,7 @@ class JenkinsCommuncationHandler {
         
         print ("jenkinsUrl is \(jenkinsUrl)")
         let rawData = self.makeHttpCall(userName: userName, password: userPassword, urlString: jenkinsUrl)
-        let status = self.buildPassed(rawData: rawData)
+        let status = self.buildPassed(rawData: rawData, preferences: preferences, jobName: jobName)
         
         return status
         
@@ -184,7 +185,7 @@ class JenkinsCommuncationHandler {
         return self.jenkinsOutput
     }
     
-    func buildPassed(rawData: [String : Any]) -> [String:String] {
+    func buildPassed(rawData: [String : Any], preferences: PrefHandler, jobName: String) -> [String:String] {
             
         var status = [String:String]()
         var lastCompletedBuildNumber = 0
@@ -219,7 +220,31 @@ class JenkinsCommuncationHandler {
             let lastBuildData = rawData["lastCompletedBuild"] as? [String:Any] ?? placeHolder
             if lastBuildData.keys.contains("number"){
                 lastCompletedBuildNumber = lastBuildData["number"] as! Int
+                
+                var lastRun = Double(getLastTestedData(preferences: preferences, jobName: jobName, jobNumber: lastCompletedBuildNumber)) ?? 0
+                let localTime = NSDate().timeIntervalSince1970
+                
+                lastRun = (lastRun/1000)
+                print ("lastRunTime = lastRun \(jobName) = \(lastRun)")
+                print ("lastRunTime = localTime \(jobName) = \(localTime)")
+                    
+                var timeDiff:Double = localTime - lastRun
+                timeDiff = Double(round(1000*timeDiff)/1000)
+                
+                print ("lastRunTime = timeDiff \(jobName) = \(timeDiff)")
+                
+                let dateComponentsFormatter = DateComponentsFormatter()
+                dateComponentsFormatter.allowedUnits = [.second, .minute, .hour, .day, .month, .year]
+                dateComponentsFormatter.maximumUnitCount = 1
+                dateComponentsFormatter.unitsStyle = .full
+                
+                status["timeDiffString"] = dateComponentsFormatter.string(from: Date(), to: Date(timeIntervalSinceNow: timeDiff))  // "1 month"
+                
+                
+                status["timeDiffDouble"] = String(timeDiff)
             }
+            
+            
             
         } else {
             status["lastBuild"] = "missing lastBuild";
@@ -255,5 +280,39 @@ class JenkinsCommuncationHandler {
     
     }
 
-}
+    func getLastTestedData(preferences: PrefHandler, jobName: String, jobNumber: Int)->String{
+        
+        let jobData = preferences.getJobDetails(jobName: jobName)
+        let serverName = jobData.getServerRecord()
+        let jobName = jobData.getJobName()
+        
+        let serverData = preferences.getServerDetails(serverName: serverName)
+        
+        let serverUrl = serverData.getServerUrl()
+        let userName = serverData.getUserName()
+        let userPassword = serverData.getUserPassword(severName: serverName)
+        
+        var jenkinsUrl = String()
+         
+        if (jobName.contains("/job/")){
+            jenkinsUrl = serverUrl + jobName + "/" + String(jobNumber) + "/api/json"
+        } else {
+            jenkinsUrl = serverUrl + "/job/" + jobName +  "/" + String(jobNumber) + "/api/json"
+        }
+        
+        let rawData = makeHttpCall(userName: userName, password: userPassword, urlString: jenkinsUrl)
+        
+        var timestamp = Int()
+        for dataKeys in rawData {
+            
+            if dataKeys.key == "timestamp"{
+                timestamp = dataKeys.value as! Int
+            }
+        }
 
+        let timeString = String(timestamp)
+        
+        return timeString
+    }
+    
+}

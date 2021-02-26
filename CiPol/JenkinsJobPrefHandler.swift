@@ -15,10 +15,36 @@ class JenkinsJobPrefHandler {
     var serverRecord = String()
     var lastPolled = String()
     var monitoring = Bool()
+    var lastTested = String()
+    var lastTestedDiff = Double()
     
     init(){
 
     }
+    
+    func setLastTestedDiff(lastTestedDiff: String){
+        
+        var lastTestedDiffValue = Double()
+        
+        print ("lastTestedDiff = \(lastTestedDiff)")
+        
+        lastTestedDiffValue = lastTestedDiff.toDouble() ?? 0
+        
+        print ("Setting lastTestedDiff to \(lastTestedDiffValue)")
+        self.lastTestedDiff = lastTestedDiffValue
+    }
+    
+    func getLastTestedDiff()->Double{
+        return self.lastTestedDiff
+    }
+    
+    func setLastTested(lastTested: String){
+        self.lastTested = lastTested
+    }
+    func getLastTested()->String{
+        return self.lastTested
+    }
+ 
     
     func setJobName(jobName: String){
         self.jobName = jobName
@@ -62,6 +88,7 @@ class JenkinsJobPrefHandler {
         return self.monitoring
     }
     
+    //lastTestedDiff
     func getBasicArrayData()->[String:String]{
         
         var basicArray = [String:String]()
@@ -71,6 +98,9 @@ class JenkinsJobPrefHandler {
         basicArray["status"] = self.getStatus()
         basicArray["lastPolled"] = self.getLastPolled()
         basicArray["monitoring"] = String(self.getMonitoring())
+        basicArray["lastTested"] = self.getLastTested()
+        basicArray["lastTestedDiff"] = String(self.getLastTestedDiff())
+        
         return basicArray
     }
     
@@ -81,8 +111,20 @@ class JenkinsJobPrefHandler {
         self.setServerRecord(serverRecord: basicArray["serverRecord"]!)
         self.setStatus(status: basicArray["status"]!)
         self.setLastPolled(lastPolled: basicArray["lastPolled"] ?? "")
-        self.setMonitoring(monitoring: Bool(basicArray["monitoring"] ?? "true") ?? true)
+        self.setLastTested(lastTested: basicArray["lastTested"] ?? "")
+        self.setLastTestedDiff(lastTestedDiff: basicArray["lastTestedDiff"] ?? "0")
 
+        self.setMonitoring(monitoring: Bool(basicArray["monitoring"] ?? "true") ?? true)
+        
     }
 }
 
+extension String {
+    func toDouble() -> Double? {
+        let numberIn = self
+        let numberOut = NumberFormatter().number(from: numberIn)?.doubleValue
+        
+        print ("numberIn = \(numberIn) numberOut = \(numberOut)")
+        return numberOut?.rounded()
+    }
+}

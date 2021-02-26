@@ -35,6 +35,8 @@ class BackgroundTesting {
                 let status = jenkinsHandler.getJobResults(preferences: prefHandler, jobData: jobData)
                 jobData.setLastJobStatus(lastJobStatus: status["lastJobStatus"]!)
                 jobData.setStatus(status: status["status"]!)
+                jobData.setLastTested(lastTested: status["timeDiffString"] ?? "")
+                jobData.setLastTestedDiff(lastTestedDiff: status["timeDiffDouble"] ?? "0")
                 if (status["lastPolled"]?.isEmpty == false){
                     jobData.setLastPolled(lastPolled:status["lastPolled"]!)
                 }

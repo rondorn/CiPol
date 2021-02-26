@@ -266,6 +266,8 @@ class ViewController: NSViewController, NSWindowDelegate  {
             jobDetailsData["jobName"] = jobDetails.getJobName()
             jobDetailsData["serverName"] = jobDetails.getServerRecord()
             jobDetailsData["status"] = jobDetails.getStatus()
+            jobDetailsData["lastRan"] = jobDetails.getLastTested()
+            jobDetailsData["lastRanDiff"] = String(jobDetails.getLastTestedDiff())
             jobDetailsData["lastPolled"] = jobDetails.getLastPolled()
             jobDetailsData["monitoring"] = String(jobDetails.getMonitoring())
             
@@ -313,7 +315,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
         for tableRecord in self.tableData {
             var index = tableRecord.value["displayName"]!
             index = index.uppercased()
-            print ("Sort Info - index is '\(index)'")
             sortingHash1[index] = tableRecord.value
             
         }
@@ -332,6 +333,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
             var index = sortingHash1[sortIndex]![sortBy]! + "-\(counterString)"
             
             index = index.uppercased()
+            print ("Sort Info - index is \(sortBy) \(index)")
             sortingHash2[index] = sortingHash1[sortIndex]
             counter = counter + 1
         }
@@ -339,9 +341,17 @@ class ViewController: NSViewController, NSWindowDelegate  {
         var sortedKey2 = [String]()
         
         if (accending == false){
-            sortedKey2 = sortingHash2.keys.sorted(by: {$0 > $1})
+            if (sortBy == "lastRanDiff"){
+                sortedKey2 = sortingHash2.keys.sorted(by: {$0.localizedStandardCompare($1) == .orderedDescending})
+            } else {
+                sortedKey2 = sortingHash2.keys.sorted(by: {$0 > $1})
+            }
         } else {
-            sortedKey2 = sortingHash2.keys.sorted(by: {$0 < $1})
+            if (sortBy == "lastRanDiff"){
+                sortedKey2 = sortingHash2.keys.sorted(by: {$0.localizedStandardCompare($1) == .orderedAscending})
+            } else {
+                sortedKey2 = sortingHash2.keys.sorted(by: {$0 < $1})
+            }
         }
     
         counter = 0
@@ -426,7 +436,7 @@ extension ViewController: NSTableViewDelegate {
     static let serverNameId = "serverNameId"
     static let statusID = "statusId"
     static let lastPooledId = "lastPolledId"
-
+    static let lastRanId = "lastRanId"
   }
 
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -463,6 +473,10 @@ extension ViewController: NSTableViewDelegate {
         cellIdentifier = CellIdentifiers.statusID
         
     } else if tableColumn == tableView.tableColumns[5] {
+        text = tableData[row]!["lastRan"]!
+        cellIdentifier = CellIdentifiers.lastRanId
+        
+    } else if tableColumn == tableView.tableColumns[6] {
         text = tableData[row]!["lastPolled"]!
         cellIdentifier = CellIdentifiers.lastPooledId
         
