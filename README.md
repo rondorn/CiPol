@@ -35,9 +35,9 @@ You can double click any job to take you to that job on your Jenkins server in y
 You can click on the ‘Refresh’ button to immediately update all job data displayed
 You can click on the ‘Polling Interval’ button, and adjust how often your data is automatically polled from the Jenkins servers and refreshed. The default is 10 min
 You can right click on any job and select Delete to remove it
-You click on the ‘Monitoring’ checkbox in the left most column and change this from off to on
-When monitoring is off you will not receive alerts when the status changes
-When the monitoring is off the icon in the tray bar will not be affected by the test outcome.
+You click on the ‘Alerting’ checkbox in the left most column and change this from off to on
+When Alerting is off you will not receive alerts when the status changes
+When Alerting is off the icon in the tray bar will not be affected by the test outcome.
 
 # Privacy Policy
 No data of any kind is collected by this program. The only outgoing network traffic this program produces is to the Jenkins servers that you have configured. All notifications are handled locally.
