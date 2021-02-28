@@ -57,7 +57,10 @@ class ViewController: NSViewController, NSWindowDelegate  {
         self.view.window?.styleMask.remove(.fullScreen)
         self.view.window?.styleMask.remove(.miniaturizable)
         self.view.window?.styleMask.remove(.resizable)
+        
+        preferredContentSize = view.frame.size
     }
+    
     
     @objc func reopenWindow(){
         if (view.window?.screen ?? NSScreen.main) != nil {
