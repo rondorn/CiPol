@@ -19,6 +19,7 @@ class Utilties {
     
     static var backgroundWaitInSeconds :UInt32 = 0
     static var activeServerRecord = ""
+    static var activeJobRecord = ""
     
     static func cleanUpURL(url: String)->String {
         

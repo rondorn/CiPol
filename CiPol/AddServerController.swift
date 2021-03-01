@@ -27,6 +27,11 @@ class AddServerController: NSViewController {
     
     }
     
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        Utilties.activeServerRecord = ""
+    }
+    
     
     func loadExistingData(serverName: String){
         
@@ -60,15 +65,12 @@ class AddServerController: NSViewController {
     @IBAction func saveButtonPressed(_ sender: Any) {
         
         let serverName = serverNameField.stringValue
-        var url = urlField.stringValue
+        let url = urlField.stringValue
         let userName = userNameField.stringValue
         let password = passwordField.stringValue
         
         let newServer = JenkinsServerPrefHandler()
         
-        //if url.contains("https://") == false {
-        //    url = "https://" + url
-        //}
         
         if Utilties.activeServerRecord.isEmpty == false{
             if (serverName != Utilties.activeServerRecord){
@@ -84,6 +86,8 @@ class AddServerController: NSViewController {
         let testHandler = JenkinsCommuncationHandler();
         
         let status = testHandler.validateServerCommunication(userName:userName, password: password, urlString: url)
+        
+        Utilties.activeServerRecord = ""
         
         if status == true {
             prefHandler.setJenkinsServerData(serverName: serverName, serverData: newServer)

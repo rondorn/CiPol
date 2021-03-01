@@ -110,6 +110,19 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         refreshData()
     }
+ 
+    @objc private func cloneJobOnClick(_ sender: AnyObject) {
+        
+        print ("Clone from table")
+        guard jobsTable.clickedRow >= 0 else { return }
+
+        let jobName = self.tableData[jobsTable.clickedRow]!["jobName"]
+        
+        Utilties.activeJobRecord = jobName ?? "";
+        
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier("addEditJob"), sender: nil)
+        
+    }
     
     @objc func openJenkinsUrl(_ sender: AnyObject){
         
@@ -123,14 +136,10 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         jenkinsUrl = Utilties.cleanUpURL(url: jenkinsUrl)
         
-        print ("Double click, opening url \(jenkinsUrl)")
         guard let url = URL(string: jenkinsUrl) else { return }
-        print ("Double click, launching url \(jenkinsUrl)")
-        NSWorkspace.shared.open([url],
-                                withAppBundleIdentifier:"com.apple.Safari",
-                                options: [],
-                                additionalEventParamDescriptor: nil,
-                                launchIdentifiers: nil)
+        
+        NSWorkspace.shared.open(url)
+
     }
 
     @objc private func enableMonitoring(_ sender: AnyObject) {
@@ -185,6 +194,8 @@ class ViewController: NSViewController, NSWindowDelegate  {
     func setupRightClickMenu(){
     
         let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Clone Job", action: #selector(cloneJobOnClick(_:)), keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Delete Job", action: #selector(tableViewDeleteItemClicked(_:)), keyEquivalent: ""))
         jobsTable.menu = menu
         

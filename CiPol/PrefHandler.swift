@@ -161,7 +161,10 @@ class PrefHandler {
         for jobName in self.jenkinsJobs{
             print ("Working on job Name \(jobName)")
             var variableValues = [String:String]();
-            let jobNameValue = jobName.key as String
+            
+            var jobNameValue = jobName.key as String
+            jobNameValue = jobNameValue.replacingOccurrences(of: "//", with: "/");
+            
             let jobRecord = self.jenkinsJobs[jobNameValue]! as JenkinsJobPrefHandler
             
             variableValues = jobRecord.getBasicArrayData()
@@ -219,7 +222,9 @@ class PrefHandler {
             
             for jobName in jobData {
                 
-                let jobNameValue = jobName.key
+                var jobNameValue = jobName.key
+                jobNameValue = jobNameValue.replacingOccurrences(of: "//", with: "/");
+                
                 let jobHandle = JenkinsJobPrefHandler()
                 var jobDataSet = [String:String]()
                 

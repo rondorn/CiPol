@@ -31,6 +31,55 @@ class AddJobController: NSViewController {
         serverJobs = prefHandler.getListOfServers();
         
         buildServerMenu()
+        
+        if (Utilties.activeJobRecord.isEmpty == false){
+            loadExistingData(jobName: Utilties.activeJobRecord)
+        }
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        Utilties.activeJobRecord = ""
+    }
+    
+    func loadExistingData(jobName: String){
+        
+        let jobName = Utilties.activeJobRecord
+        let jobDetails = prefHandler.getJobDetails(jobName: jobName)
+        
+        selectedServerJob = jobDetails.getServerRecord()
+        
+        serverNamePopUp.addItem(withTitle:selectedServerJob)
+        serverNamePopUp.select(serverNamePopUp.lastItem)
+        
+        print ("Job name is \(jobName) - selectedServerJob = \(selectedServerJob)")
+    
+        let jobs = jobName.split(separator: "/")
+        var tempJobName  = ""
+        
+        if jobs.count >= 3 && jobs[2] == "job" {
+            buildJobsMenu(jobMenu: jobNamePopUp)
+            tempJobName = "/" + jobs[0] + "/" + jobs[1]
+            jobNamePopUp.select(jobNamePopUp.item(withTitle: tempJobName))
+            finalJobName = tempJobName
+            jobNamePopUp2.isHidden = false
+            buildJobsMenu(jobMenu: jobNamePopUp2)
+        }
+
+        if jobs.count >= 5 && jobs[4] == "job" {
+            finalJobName = finalJobName + "/" + jobs[2] + "/" + jobs[3]
+            tempJobName = "/" + jobs[2] + "/" + jobs[3]
+            jobNamePopUp2.select(jobNamePopUp2.item(withTitle: tempJobName))
+            jobNamePopUp3.isHidden = false
+            buildJobsMenu(jobMenu: jobNamePopUp3)
+        }
+        if jobs.count >= 7 && jobs[6] == "job" {
+            finalJobName = finalJobName + "/" + jobs[4] + "/" + jobs[5]
+            tempJobName = "/" + jobs[4] + "/" + jobs[5]
+            jobNamePopUp3.select(jobNamePopUp3.item(withTitle: tempJobName))
+            jobNamePopUp4.isHidden = false
+            buildJobsMenu(jobMenu: jobNamePopUp4)
+        }
     }
     
     func buildServerMenu(){
@@ -55,6 +104,7 @@ class AddJobController: NSViewController {
         
         jobMenu.removeAllItems()
         
+        print ("build jobs menu using \(finalJobName) - \(selectedServerJob)")
         let jobLisHandler = JobListHandler()
         let jobNames = jobLisHandler.getJobList(prefHandler: prefHandler, serverName: selectedServerJob, appendedJobName: finalJobName)
         
@@ -73,9 +123,19 @@ class AddJobController: NSViewController {
         let newJobName = finalJobName
         let serverName = serverNamePopUp.titleOfSelectedItem!
         
+        let jobList = prefHandler.getListOfJobs()
+        
         print ("Using final job name of \(newJobName)")
         if (newJobName.isEmpty == false && serverName.isEmpty == false){
-            print ("newJobName is \(newJobName) - serverName is \(serverName)")
+            print ("newJobName is \(newJobName) - serverName is \(serverName) - cloned job - \(Utilties.activeJobRecord)")
+            
+            if jobList.contains(newJobName) == true {
+                _ = Toast.displayMesssage(title: "Alert", message: "This job already exists")
+                finalJobName = ""
+                loadExistingData(jobName: Utilties.activeJobRecord)
+                return
+            }
+            
             newJob.setJobName(jobName: newJobName)
             newJob.setServerRecord(serverRecord: serverName)
             newJob.setStatus(status: Utilties.testUnknown)
@@ -99,6 +159,7 @@ class AddJobController: NSViewController {
             } else {
                 _ = Toast.displayMesssage(title: "Alert", message: "Encountered error when attempting to communicate with server")
             }
+            
         } else {
             _ = Toast.displayMesssage(title: "Alert", message: "Not all data provided")
         }
@@ -125,8 +186,7 @@ class AddJobController: NSViewController {
         
         finalJobName = jobNamePopUp.titleOfSelectedItem!
         
-        if (jobNamePopUp.titleOfSelectedItem?.contains("/job/") == true){
-            finalJobName = jobNamePopUp.titleOfSelectedItem!
+        if (finalJobName.contains("/job/") == true){
             jobNamePopUp2.isHidden = false
             buildJobsMenu(jobMenu: jobNamePopUp2)
         } else {
