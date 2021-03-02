@@ -66,8 +66,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let trayIcon = "CiPol 🟢"
-        
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "About CiPol", action: #selector(aboutMenu(_:)), keyEquivalent: ""))
         menu.insertItem(NSMenuItem.separator(), at: 1)
@@ -76,7 +74,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(quitApp(_:)), keyEquivalent: ""))
         
         AppDelegate.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        AppDelegate.statusItem?.button?.title = trayIcon
+        
+        let trayText = "CiPol"
+        let trayColor: [NSAttributedString.Key: Any]  = [ NSAttributedString.Key.foregroundColor: NSColor.systemGreen, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12, weight: NSFont.Weight.bold)]
+        let trayValue = NSAttributedString(string: trayText, attributes: trayColor)
+        AppDelegate.statusItem?.button?.attributedTitle = trayValue
+        
         AppDelegate.statusItem?.menu = menu
     }
 }

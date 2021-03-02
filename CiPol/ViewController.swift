@@ -334,7 +334,24 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     func determineStatusIcon(trayIcon: String){
         
-        AppDelegate.statusItem?.button?.title = trayIcon
+        let trayText = "CiPol"
+        
+        let fontData = NSFont.systemFont(ofSize: CGFloat(Utilties.trayFontSize), weight: Utilties.trayFontWeight)
+        
+        
+        var trayColor = [ NSAttributedString.Key.foregroundColor: NSColor.systemGray, NSAttributedString.Key.font: fontData ]
+        
+        if (trayIcon.contains(Utilties.redTextIcon)){
+            trayColor = [ NSAttributedString.Key.foregroundColor: NSColor.systemRed, NSAttributedString.Key.font: fontData ]
+        
+        } else if (trayIcon.contains(Utilties.greenTextIcon)){
+            trayColor = [ NSAttributedString.Key.foregroundColor: NSColor.systemGreen, NSAttributedString.Key.font: fontData ]
+
+        }
+
+        let trayValue = NSAttributedString(string: trayText, attributes: trayColor)
+        AppDelegate.statusItem?.button?.attributedTitle = trayValue
+        
     }
         
     func sortTableData(sortBy: String, accending: Bool){

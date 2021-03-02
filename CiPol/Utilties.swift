@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Cocoa
 
 class Utilties {
     
@@ -17,6 +18,17 @@ class Utilties {
     static let testNotPolled = "Not Polled"
     static let testUnknown = "Unknown"
     static var runningRefresh = false
+    
+    static let redIcon =  NSImage(named:NSImage.Name("Red_CiMon"))
+    static let greenIcon =  NSImage(named:NSImage.Name("Green_CiMon"))
+    static let greyIcon =  NSImage(named:NSImage.Name("Grey_CiMon"))
+    
+    static let trayFontSize = 14
+    static let trayFontWeight = NSFont.Weight.bold
+    
+    static let redTextIcon = "🔴"
+    static let greyTextIcon = "⚪️"
+    static let greenTextIcon = "🟢"
     
     static var backgroundWaitInSeconds :UInt32 = 0
     static var activeServerRecord = ""
@@ -47,13 +59,13 @@ class Utilties {
         
         print ("Recieved a status of \(status)")
         if status == Utilties.testPassed {
-            statusIcon = "🟢"
+            statusIcon = greenTextIcon
             
         } else if status == Utilties.testFailed {
-            statusIcon = "🔴"
+            statusIcon = redTextIcon
 
         } else {
-            statusIcon = "⚪️"
+            statusIcon = greyTextIcon
         }
         
         return statusIcon
