@@ -134,7 +134,7 @@ class JenkinsCommuncationHandler {
             request.setValue(authString, forHTTPHeaderField: "Authorization")
         }
         request.addValue("Application/json", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 8
+        request.timeoutInterval = Utilties.httpTimeoutValue
         
         var httpResponse = 0
         let semaphore = DispatchSemaphore(value: 0)  //1. create a counting semaphore

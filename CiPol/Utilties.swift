@@ -19,11 +19,13 @@ class Utilties {
     static let testUnknown = "Unknown"
     static var runningRefresh = false
     
+    static let httpTimeoutValue:Double = 20
+    
     static let redIcon =  NSImage(named:NSImage.Name("Red_CiMon"))
     static let greenIcon =  NSImage(named:NSImage.Name("Green_CiMon"))
     static let greyIcon =  NSImage(named:NSImage.Name("Grey_CiMon"))
     
-    static let trayFontSize = 14
+    static let trayFontSize = 15
     static let trayFontWeight = NSFont.Weight.bold
     
     static let redTextIcon = "🔴"

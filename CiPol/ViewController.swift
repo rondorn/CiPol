@@ -280,7 +280,8 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         var counter = 0
         
-        var trayIcon = "CiPol 🟢"
+        var trayIcon = Utilties.greenTextIcon
+        var oneFailing = false
         
         for jobName in self.jobList {
             let jobDetails = prefHandler.getJobDetails(jobName: jobName)
@@ -307,15 +308,17 @@ class ViewController: NSViewController, NSWindowDelegate  {
             }
             
             let jobStatus = jobDetails.getLastJobStatus()
-            var oneFailing = false
             
             print ("jobStatus for trayIcon = \(jobStatus)")
             if (jobStatus != Utilties.testPassed){
                 if (jobDetails.getMonitoring() == true && jobStatus == Utilties.testFailed){
-                    trayIcon = "CiPol 🔴"
+                    trayIcon = Utilties.redTextIcon
                     oneFailing = true
+                    print ("trayIcon is \(trayIcon) bad loop")
+                    
                 } else if (jobDetails.getMonitoring() && oneFailing == false){
-                    trayIcon = "CiPol ⚪️"
+                    trayIcon = Utilties.greyTextIcon
+                    print ("trayIcon is \(trayIcon) grey loop")
                 }
             }
             
@@ -334,6 +337,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     func determineStatusIcon(trayIcon: String){
         
+        print ("trayIcon is \(trayIcon)")
         let trayText = "CiPol"
         
         let fontData = NSFont.systemFont(ofSize: CGFloat(Utilties.trayFontSize), weight: Utilties.trayFontWeight)
@@ -341,10 +345,10 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         var trayColor = [ NSAttributedString.Key.foregroundColor: NSColor.systemGray, NSAttributedString.Key.font: fontData ]
         
-        if (trayIcon.contains(Utilties.redTextIcon)){
+        if (trayIcon == Utilties.redTextIcon){
             trayColor = [ NSAttributedString.Key.foregroundColor: NSColor.systemRed, NSAttributedString.Key.font: fontData ]
         
-        } else if (trayIcon.contains(Utilties.greenTextIcon)){
+        } else if (trayIcon == Utilties.greenTextIcon){
             trayColor = [ NSAttributedString.Key.foregroundColor: NSColor.systemGreen, NSAttributedString.Key.font: fontData ]
 
         }
