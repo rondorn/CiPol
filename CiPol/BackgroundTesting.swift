@@ -50,6 +50,11 @@ class BackgroundTesting {
     
     func runTests(prefHandler: PrefHandler, firstLaunch: Bool){
         
+        //exit if already running tests
+        if (Utilties.runningRefresh == true && firstLaunch == false){
+            return
+        }
+        
         var oldJobStatus = [String:String]();
         var newJobStatus = [String:String]();
         

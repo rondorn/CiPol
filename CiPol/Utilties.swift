@@ -16,6 +16,7 @@ class Utilties {
     static let testErrorPolling = "Error in polling"
     static let testNotPolled = "Not Polled"
     static let testUnknown = "Unknown"
+    static var runningRefresh = false
     
     static var backgroundWaitInSeconds :UInt32 = 0
     static var activeServerRecord = ""

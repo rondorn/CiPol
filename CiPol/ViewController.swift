@@ -17,9 +17,11 @@ class ViewController: NSViewController, NSWindowDelegate  {
     @IBOutlet weak var addJobButton: NSButton!
     @IBOutlet weak var refreshDataButton: NSButton!
     @IBOutlet weak var setPollingIntervalButton: NSButton!
+    @IBOutlet weak var busyIndicator: NSProgressIndicator!
     
     let prefHandler = PrefHandler()
     let testingHandler = BackgroundTesting()
+
     
     var firstLaunch = true
     
@@ -30,7 +32,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        busyIndicator.isHidden = true
         // Do any additional setup after loading the view.
         loadPreferences()
         
@@ -414,12 +416,20 @@ class ViewController: NSViewController, NSWindowDelegate  {
     @IBAction func refreshDataPressed(_ sender: Any) {
         print ("Button refresh data pressed")
         
-        DispatchQueue.global(qos: .background).async {
-            self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: true)
-            
-            DispatchQueue.main.async {
-                self.refreshData()
-                self.sendAlerts()
+        if (Utilties.runningRefresh == false){
+            Utilties.runningRefresh = true
+            busyIndicator.isHidden = false
+            busyIndicator.startAnimation(sender)
+            DispatchQueue.global(qos: .background).async {
+                self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: true)
+                
+                DispatchQueue.main.async {
+                    self.refreshData()
+                    self.sendAlerts()
+                    self.busyIndicator.isHidden = true
+                    self.busyIndicator.stopAnimation(sender)
+                    Utilties.runningRefresh = false
+                }
             }
         }
     }
