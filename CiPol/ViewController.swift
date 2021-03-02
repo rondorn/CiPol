@@ -136,6 +136,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         jenkinsUrl = Utilties.cleanUpURL(url: jenkinsUrl)
         
+        print ("Opening up URL of \(jenkinsUrl)")
         guard let url = URL(string: jenkinsUrl) else { return }
         
         NSWorkspace.shared.open(url)
@@ -209,14 +210,20 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         var testsPassing = [String]()
         var testsFailing = [String]()
+        var testsUnknown = [String]()
         
         for jobName in BackgroundTesting.alertData {
             let jobDetails = prefHandler.getJobDetails(jobName: jobName.key)
             if (jobDetails.getMonitoring() == true){
-                if (jobName.value == Utilties.testPassed){
+                if jobName.value == Utilties.testPassed {
                     testsPassing.append(jobName.key)
-                } else {
+                    
+                } else if jobName.value == Utilties.testFailed {
                     testsFailing.append(jobName.key)
+                    
+                } else {
+                    testsUnknown.append(jobName.key)
+                    
                 }
             }
         }
@@ -235,18 +242,18 @@ class ViewController: NSViewController, NSWindowDelegate  {
             notificationHandle.showNotification(jobNames: testsFailing, jobStatus: Utilties.testFailed)
         }
         
+        if (testsUnknown.count == 1){
+            notificationHandle.showNotification(jobName: testsUnknown.first!, jobStatus: Utilties.testUnknown)
+            
+        } else if (testsUnknown.count > 1){
+            notificationHandle.showNotification(jobNames: testsUnknown, jobStatus: Utilties.testUnknown)
+        }
+        
         BackgroundTesting.alertData = [String:String]()
     }
     
     override func viewDidAppear(){
         super.viewDidAppear()
-        //refreshData()
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
     
     @objc func refreshData(){
@@ -296,10 +303,17 @@ class ViewController: NSViewController, NSWindowDelegate  {
             } else {
                 jobDetailsData["displayName"]  = jobName
             }
-            //jobDetailsData["displayName"] = jobName
-            if (jobDetails.getLastJobStatus() != Utilties.testPassed){
-                if (jobDetails.getMonitoring() == true){
+            
+            let jobStatus = jobDetails.getLastJobStatus()
+            var oneFailing = false
+            
+            print ("jobStatus for trayIcon = \(jobStatus)")
+            if (jobStatus != Utilties.testPassed){
+                if (jobDetails.getMonitoring() == true && jobStatus == Utilties.testFailed){
                     trayIcon = "CiPol 🔴"
+                    oneFailing = true
+                } else if (jobDetails.getMonitoring() && oneFailing == false){
+                    trayIcon = "CiPol ⚪️"
                 }
             }
             
@@ -405,6 +419,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
             
             DispatchQueue.main.async {
                 self.refreshData()
+                self.sendAlerts()
             }
         }
     }

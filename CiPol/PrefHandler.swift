@@ -162,10 +162,9 @@ class PrefHandler {
             print ("Working on job Name \(jobName)")
             var variableValues = [String:String]();
             
-            var jobNameValue = jobName.key as String
-            jobNameValue = jobNameValue.replacingOccurrences(of: "//", with: "/");
-            
-            let jobRecord = self.jenkinsJobs[jobNameValue]! as JenkinsJobPrefHandler
+            let jobNameValue = jobName.key as String
+
+            let jobRecord = self.jenkinsJobs[jobNameValue] ?? JenkinsJobPrefHandler()
             
             variableValues = jobRecord.getBasicArrayData()
             combinedPrefs["jenkinsJobs"]![jobNameValue] = variableValues
@@ -222,9 +221,8 @@ class PrefHandler {
             
             for jobName in jobData {
                 
-                var jobNameValue = jobName.key
-                jobNameValue = jobNameValue.replacingOccurrences(of: "//", with: "/");
-                
+                let jobNameValue = jobName.key
+
                 let jobHandle = JenkinsJobPrefHandler()
                 var jobDataSet = [String:String]()
                 

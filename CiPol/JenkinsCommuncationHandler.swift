@@ -221,16 +221,16 @@ class JenkinsCommuncationHandler {
             if lastBuildData.keys.contains("number"){
                 lastCompletedBuildNumber = lastBuildData["number"] as! Int
                 
-                var lastRun = Double(getLastTestedData(preferences: preferences, jobName: jobName, jobNumber: lastCompletedBuildNumber)) ?? 0
+                var lastRun = UInt64(getLastTestedData(preferences: preferences, jobName: jobName, jobNumber: lastCompletedBuildNumber)) ?? 0
+            
                 let localTime = NSDate().timeIntervalSince1970
                 
                 lastRun = (lastRun/1000)
                 print ("lastRunTime = lastRun \(jobName) = \(lastRun)")
                 print ("lastRunTime = localTime \(jobName) = \(localTime)")
                     
-                var timeDiff:Double = localTime - lastRun
-                timeDiff = Double(round(1000*timeDiff)/1000)
-                
+                let timeDiff:UInt64 = UInt64(localTime) - lastRun
+
                 print ("lastRunTime = timeDiff \(jobName) = \(timeDiff)")
                 
                 let dateComponentsFormatter = DateComponentsFormatter()
@@ -238,7 +238,7 @@ class JenkinsCommuncationHandler {
                 dateComponentsFormatter.maximumUnitCount = 1
                 dateComponentsFormatter.unitsStyle = .full
                 
-                status["timeDiffString"] = dateComponentsFormatter.string(from: Date(), to: Date(timeIntervalSinceNow: timeDiff))  // "1 month"
+                status["timeDiffString"] = dateComponentsFormatter.string(from: Date(), to: Date(timeIntervalSinceNow: TimeInterval(timeDiff)))  // "1 month"
                 //print ("Convert timeDiff \(timeDiff) to be \(status["timeDiffString"])")
                 
                 status["timeDiffDouble"] = String(timeDiff)

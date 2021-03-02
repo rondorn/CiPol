@@ -49,8 +49,7 @@ class AddJobController: NSViewController {
         
         selectedServerJob = jobDetails.getServerRecord()
         
-        serverNamePopUp.addItem(withTitle:selectedServerJob)
-        serverNamePopUp.select(serverNamePopUp.lastItem)
+        serverNamePopUp.select(serverNamePopUp.item(withTitle: selectedServerJob))
         
         print ("Job name is \(jobName) - selectedServerJob = \(selectedServerJob)")
     
@@ -130,9 +129,11 @@ class AddJobController: NSViewController {
             print ("newJobName is \(newJobName) - serverName is \(serverName) - cloned job - \(Utilties.activeJobRecord)")
             
             if jobList.contains(newJobName) == true {
+                let serverNamePlaceholder = serverName
                 _ = Toast.displayMesssage(title: "Alert", message: "This job already exists")
                 finalJobName = ""
                 loadExistingData(jobName: Utilties.activeJobRecord)
+                serverNamePopUp.select(serverNamePopUp.item(withTitle: serverNamePlaceholder))
                 return
             }
             
@@ -146,7 +147,7 @@ class AddJobController: NSViewController {
             let testHandler = JenkinsCommuncationHandler();
             let status = testHandler.validateJobCommunication(preferences: prefHandler, jobData: newJob)
             
-            print ("New Job Testing Status is \(status)")
+            print ("New Job \(newJobName) Testing Status is \(status)")
             
             if (status == true){
                 prefHandler.setJenkinsJobData(jobName: newJobName, jobData: newJob)
@@ -184,6 +185,7 @@ class AddJobController: NSViewController {
     
     @IBAction func jobPopUpAction(_ sender: Any) {
         
+        print ("Setting up popUp job 1")
         finalJobName = jobNamePopUp.titleOfSelectedItem!
         
         if (finalJobName.contains("/job/") == true){
@@ -198,11 +200,15 @@ class AddJobController: NSViewController {
 
     @IBAction func jobPopUpAction2(_ sender: Any) {
         
+        print ("Setting up popUp job 2")
+        finalJobName = jobNamePopUp.titleOfSelectedItem!
+        
         if (jobNamePopUp2.titleOfSelectedItem?.contains("/job/") == true){
             finalJobName = finalJobName + "/" + jobNamePopUp2.titleOfSelectedItem!
             jobNamePopUp3.isHidden = false
-            buildJobsMenu(jobMenu: jobNamePopUp3)
-        
+            if (sender as? NSObject == jobNamePopUp2){
+                buildJobsMenu(jobMenu: jobNamePopUp3)
+            }
         } else {
             finalJobName = finalJobName + "/job/" + jobNamePopUp2.titleOfSelectedItem!
             jobNamePopUp3.isHidden = true
@@ -212,10 +218,15 @@ class AddJobController: NSViewController {
     
     @IBAction func jobPopUpAction3(_ sender: Any) {
         
+        print ("Setting up popUp job 3")
+        jobPopUpAction2(sender)
+        
         if (jobNamePopUp3.titleOfSelectedItem?.contains("/job/") == true){
             finalJobName = finalJobName + "/" +  jobNamePopUp3.titleOfSelectedItem!
             jobNamePopUp4.isHidden = false
-            buildJobsMenu(jobMenu: jobNamePopUp4)
+            if (sender as? NSObject == jobNamePopUp3){
+                buildJobsMenu(jobMenu: jobNamePopUp4)
+            }
         } else {
             finalJobName = finalJobName + "/job/" +  jobNamePopUp3.titleOfSelectedItem!
             jobNamePopUp4.isHidden = true
@@ -225,6 +236,8 @@ class AddJobController: NSViewController {
     
     @IBAction func jobPopUpAction4(_ sender: Any) {
         
+        print ("Setting up popUp job 4")
+        jobPopUpAction3(sender)
         if (jobNamePopUp4.titleOfSelectedItem?.contains("/job/") == true){
             _ = Toast.displayMesssage(title: "Alert", message: "You have reached the maximum number of levels")
         } else {

@@ -82,8 +82,12 @@ class NotificationHandler {
 
         if jobStatus == Utilties.testPassed {
             iconText = "\(icon) Multiple Jobs Are Now Passing"
-        } else {
+            
+        } else if jobStatus == Utilties.testFailed {
             iconText = "\(icon) Multiple Jobs Are Now Failing"
+            
+        } else {
+            iconText = "\(icon) Multiple Jobs having issues"
         }
         
         var message = ""
