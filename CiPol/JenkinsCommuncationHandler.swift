@@ -35,7 +35,7 @@ class JenkinsCommuncationHandler {
             }
             preferences.setJenkinsJobData(jobName: jobName, jobData: jobData)
             preferences.savePreferences()
-            
+            preferences.loadPreferences()
         }
     }
     

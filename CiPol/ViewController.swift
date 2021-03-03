@@ -18,6 +18,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
     @IBOutlet weak var refreshDataButton: NSButton!
     @IBOutlet weak var setPollingIntervalButton: NSButton!
     @IBOutlet weak var busyIndicator: NSProgressIndicator!
+    @IBOutlet weak var buttonBar: NSSplitView!
     
     let prefHandler = PrefHandler()
     let testingHandler = BackgroundTesting()
@@ -49,7 +50,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reopenWindow), name: NSNotification.Name(rawValue: "zoom"), object: nil)
         collectDataFromBackground()
-        
+                
         self.view.window?.titleVisibility = .hidden
         self.view.window?.titlebarAppearsTransparent = true
 
@@ -61,9 +62,9 @@ class ViewController: NSViewController, NSWindowDelegate  {
         self.view.window?.styleMask.remove(.resizable)
         
         preferredContentSize = view.frame.size
-     
+        
     }
-    
+
     
     @objc func reopenWindow(){
         if (view.window?.screen ?? NSScreen.main) != nil {
@@ -88,8 +89,11 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     func collectDataFromBackground(){
         
+        self.busyIndicator.isHidden = false
+        self.busyIndicator.startAnimation(self)
+        
         DispatchQueue.global(qos: .background).async {
-            
+            Utilties.runningRefresh = true
             self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: self.firstLaunch)
             
             DispatchQueue.main.async {
@@ -97,6 +101,9 @@ class ViewController: NSViewController, NSWindowDelegate  {
                 self.collectDataFromBackground();
                 self.sendAlerts()
                 self.firstLaunch = false
+                self.busyIndicator.isHidden = true
+                self.busyIndicator.stopAnimation(self)
+                Utilties.runningRefresh = false
             }
         }
         
@@ -445,11 +452,11 @@ class ViewController: NSViewController, NSWindowDelegate  {
                 self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: true)
                 
                 DispatchQueue.main.async {
-                    self.refreshData()
                     self.sendAlerts()
                     self.busyIndicator.isHidden = true
                     self.busyIndicator.stopAnimation(sender)
                     Utilties.runningRefresh = false
+                    self.refreshData()
                 }
             }
         }

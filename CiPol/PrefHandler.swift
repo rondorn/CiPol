@@ -9,6 +9,8 @@ import Foundation
 
 class PrefHandler {
     
+    let lock = NSLock()
+    
     var jenkinsServerData = [String: JenkinsServerPrefHandler]()
     var jenkinsJobs = [String: JenkinsJobPrefHandler]()
     var pollingInterval : Int = Int()
@@ -130,6 +132,7 @@ class PrefHandler {
     
     func savePreferences(){
         
+        lock.lock()
         var combinedPrefs = [String:[String:[String:String]]]()
         
         combinedPrefs["jenkinsServerData"] = [String:[String:String]]()
@@ -179,9 +182,13 @@ class PrefHandler {
         } catch {
             print(error)
         }
+        
+        lock.unlock()
     }
     
     func loadPreferences(){
+        
+        lock.lock()
         
         self.jenkinsServerData = [String: JenkinsServerPrefHandler]()
         self.jenkinsJobs = [String: JenkinsJobPrefHandler]()
@@ -233,6 +240,7 @@ class PrefHandler {
                 self.setJenkinsJobData(jobName: jobNameValue, jobData: jobHandle)
             }
         }
+        lock.unlock()
     }
     
 }

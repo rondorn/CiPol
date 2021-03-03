@@ -48,7 +48,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         message += "©All Rights Reserved\n"
         message += "Distributed via GPLv2 License\n"
         
+        viewWindow(sender)
+        
         _ = Toast.displayInfo(title: "", message: message)
+        
     }
     
     @objc func viewWindow(_ sender: Any?) {
