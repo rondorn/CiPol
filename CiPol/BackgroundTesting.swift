@@ -17,7 +17,18 @@ class BackgroundTesting {
     init(){
 
     }
-
+    
+    func backgroundRunner (){
+            
+        while(true){
+            let sleepFor = Utilties.getBackgroundWaitInSeconds()
+            print ("BackgroundTesting -  sleeping for \(sleepFor)")
+            sleep(sleepFor)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
+    }
+    
     func runNewTests(prefHandler: PrefHandler, firstLaunch: Bool){
         
         print ("Entered runNewTests")
@@ -44,25 +55,27 @@ class BackgroundTesting {
                 
             }
         }
-        
+    
         prefHandler.savePreferences()
     }
     
-    func runTests(prefHandler: PrefHandler, firstLaunch: Bool){
+    func runTests(prefHandler: PrefHandler){
         
         //exit if already running tests
-        if (Utilties.runningRefresh == true && firstLaunch == false){
+        if (Utilties.runningRefresh == true && Utilties.firstLaunch == false){
             return
         }
         
         var oldJobStatus = [String:String]();
         var newJobStatus = [String:String]();
         
-        if (firstLaunch == false){
+        if (Utilties.firstLaunch == false){
             let sleepFor = Utilties.getBackgroundWaitInSeconds()
             print ("BackgroundTesting -  sleeping for \(sleepFor)")
             oldJobStatus = gatherJobStatuses(prefHandler: prefHandler)
             sleep(sleepFor)
+        } else {
+            Utilties.firstLaunch = false
         }
         
         prefHandler.loadPreferences()

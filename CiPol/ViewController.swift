@@ -23,9 +23,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
     let prefHandler = PrefHandler()
     let testingHandler = BackgroundTesting()
 
-    
-    var firstLaunch = true
-    
     var jobsData = [String: JenkinsJobPrefHandler]()
     var jobList: [String] = []
     var tableData = [Int:[String:String]]()
@@ -49,8 +46,13 @@ class ViewController: NSViewController, NSWindowDelegate  {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshNewJob), name: NSNotification.Name(rawValue: "jobAdded"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reopenWindow), name: NSNotification.Name(rawValue: "zoom"), object: nil)
+        
         collectDataFromBackground()
-                
+        
+        DispatchQueue.global(qos: .background).async {
+            self.testingHandler.backgroundRunner()
+        }
+        
         self.view.window?.titleVisibility = .hidden
         self.view.window?.titlebarAppearsTransparent = true
 
@@ -94,16 +96,16 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         DispatchQueue.global(qos: .background).async {
             Utilties.runningRefresh = true
-            self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: self.firstLaunch)
-            
+            self.testingHandler.runTests(prefHandler: self.prefHandler)
+
             DispatchQueue.main.async {
+                print ("refreshData called from collectDataFromBackground")
                 self.refreshData()
-                self.collectDataFromBackground();
                 self.sendAlerts()
-                self.firstLaunch = false
                 self.busyIndicator.isHidden = true
                 self.busyIndicator.stopAnimation(self)
                 Utilties.runningRefresh = false
+
             }
         }
         
@@ -116,7 +118,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
 
         let jobName = self.tableData[jobsTable.clickedRow]!["jobName"]
         prefHandler.removeJenkinsJob(jobName: jobName!)
-        
+        print ("refreshData called from tableViewDeleteItemClicked")
         refreshData()
     }
  
@@ -162,7 +164,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
         jobData.setMonitoring(monitoring: true)
         prefHandler.setJenkinsJobData(jobName: jobName!, jobData: jobData)
         prefHandler.savePreferences()
-        
+        print ("refreshData called from enableMonitoring")
         refreshData()
     }
     
@@ -183,7 +185,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
         jobData.setMonitoring(monitoring: monValue)
         prefHandler.setJenkinsJobData(jobName: jobName!, jobData: jobData)
         prefHandler.savePreferences()
-        
+        print ("refreshData called from toggleMonitoring")
         refreshData()
     }
     
@@ -267,7 +269,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     @objc func refreshData(){
         
-        self.loadPreferences()
         self.loadPreferences()
         self.jobsTable.reloadData()
     }
@@ -446,10 +447,15 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         if (Utilties.runningRefresh == false){
             Utilties.runningRefresh = true
-            busyIndicator.isHidden = false
-            busyIndicator.startAnimation(sender)
             DispatchQueue.global(qos: .background).async {
-                self.testingHandler.runTests(prefHandler: self.prefHandler, firstLaunch: true)
+                DispatchQueue.main.async {
+                    self.busyIndicator.isHidden = false
+                    self.busyIndicator.startAnimation(sender)
+                }
+            }
+            DispatchQueue.global(qos: .background).async {
+                Utilties.firstLaunch = true
+                self.testingHandler.runTests(prefHandler: self.prefHandler)
                 
                 DispatchQueue.main.async {
                     self.sendAlerts()

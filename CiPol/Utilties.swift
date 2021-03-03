@@ -18,6 +18,7 @@ class Utilties {
     static let testNotPolled = "Not Polled"
     static let testUnknown = "Unknown"
     static var runningRefresh = false
+    static var firstLaunch = true
     
     static let httpTimeoutValue:Double = 20
     
