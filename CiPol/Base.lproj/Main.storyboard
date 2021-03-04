@@ -401,9 +401,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="O4W-PO-dIB" secondAttribute="trailing" constant="5" id="Neb-U7-Dur"/>
-                                                                <constraint firstItem="O4W-PO-dIB" firstAttribute="leading" secondItem="shd-Xl-dXq" secondAttribute="leading" constant="3" id="fX5-rA-cfY"/>
-                                                                <constraint firstItem="O4W-PO-dIB" firstAttribute="centerY" secondItem="shd-Xl-dXq" secondAttribute="centerY" id="yzY-1G-3W6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="O4W-PO-dIB" secondAttribute="trailing" constant="5" id="6yg-wM-Xgy"/>
+                                                                <constraint firstItem="O4W-PO-dIB" firstAttribute="leading" secondItem="shd-Xl-dXq" secondAttribute="leading" constant="3" id="Ujp-bn-rKj"/>
+                                                                <constraint firstItem="O4W-PO-dIB" firstAttribute="centerY" secondItem="shd-Xl-dXq" secondAttribute="centerY" id="shQ-3E-jXs"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="O4W-PO-dIB" id="mOM-i0-kmn"/>
@@ -438,9 +438,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="lND-k2-qoA" firstAttribute="leading" secondItem="fkx-Xl-Djm" secondAttribute="leading" constant="2" id="4Xb-sJ-Sd0"/>
-                                                                <constraint firstItem="lND-k2-qoA" firstAttribute="centerY" secondItem="fkx-Xl-Djm" secondAttribute="centerY" id="cZE-7U-IsB"/>
-                                                                <constraint firstItem="lND-k2-qoA" firstAttribute="centerX" secondItem="fkx-Xl-Djm" secondAttribute="centerX" id="w6G-fj-buh"/>
+                                                                <constraint firstItem="lND-k2-qoA" firstAttribute="centerY" secondItem="fkx-Xl-Djm" secondAttribute="centerY" id="3Ww-7e-08B"/>
+                                                                <constraint firstItem="lND-k2-qoA" firstAttribute="centerX" secondItem="fkx-Xl-Djm" secondAttribute="centerX" id="lb8-Hx-PXo"/>
+                                                                <constraint firstItem="lND-k2-qoA" firstAttribute="leading" secondItem="fkx-Xl-Djm" secondAttribute="leading" constant="2" id="pu4-V0-fHf"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="lND-k2-qoA" id="wog-JD-2yh"/>
@@ -475,9 +475,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="fPd-EA-e2d" firstAttribute="centerX" secondItem="3jx-Hh-rkk" secondAttribute="centerX" id="Avz-kn-p1Z"/>
-                                                                <constraint firstItem="fPd-EA-e2d" firstAttribute="leading" secondItem="3jx-Hh-rkk" secondAttribute="leading" constant="2" id="afC-dz-ozm"/>
-                                                                <constraint firstItem="fPd-EA-e2d" firstAttribute="centerY" secondItem="3jx-Hh-rkk" secondAttribute="centerY" id="ksw-UJ-bNM"/>
+                                                                <constraint firstItem="fPd-EA-e2d" firstAttribute="centerX" secondItem="3jx-Hh-rkk" secondAttribute="centerX" id="Ex0-wh-lXK"/>
+                                                                <constraint firstItem="fPd-EA-e2d" firstAttribute="leading" secondItem="3jx-Hh-rkk" secondAttribute="leading" constant="2" id="Eyr-nc-WsK"/>
+                                                                <constraint firstItem="fPd-EA-e2d" firstAttribute="centerY" secondItem="3jx-Hh-rkk" secondAttribute="centerY" id="mqH-Ft-q4u"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="fPd-EA-e2d" id="OUd-Re-Ssl"/>
@@ -512,9 +512,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="8py-gV-63b" firstAttribute="centerX" secondItem="Xdr-8f-fMd" secondAttribute="centerX" id="Zed-Mw-dYK"/>
-                                                                <constraint firstItem="8py-gV-63b" firstAttribute="leading" secondItem="Xdr-8f-fMd" secondAttribute="leading" constant="2" id="cgP-DM-ciV"/>
-                                                                <constraint firstItem="8py-gV-63b" firstAttribute="centerY" secondItem="Xdr-8f-fMd" secondAttribute="centerY" id="tqg-qI-LbP"/>
+                                                                <constraint firstItem="8py-gV-63b" firstAttribute="leading" secondItem="Xdr-8f-fMd" secondAttribute="leading" constant="2" id="3aT-Wl-APf"/>
+                                                                <constraint firstItem="8py-gV-63b" firstAttribute="centerY" secondItem="Xdr-8f-fMd" secondAttribute="centerY" id="b2B-CE-xPg"/>
+                                                                <constraint firstItem="8py-gV-63b" firstAttribute="centerX" secondItem="Xdr-8f-fMd" secondAttribute="centerX" id="nCW-df-fha"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="8py-gV-63b" id="ETX-fT-jF7"/>
@@ -549,9 +549,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="YwB-5n-dDo" firstAttribute="centerX" secondItem="kVo-dZ-zOP" secondAttribute="centerX" id="HuV-OX-CIH"/>
-                                                                <constraint firstItem="YwB-5n-dDo" firstAttribute="leading" secondItem="kVo-dZ-zOP" secondAttribute="leading" constant="2" id="Pf0-sE-8HI"/>
-                                                                <constraint firstItem="YwB-5n-dDo" firstAttribute="centerY" secondItem="kVo-dZ-zOP" secondAttribute="centerY" id="TrJ-La-oWz"/>
+                                                                <constraint firstItem="YwB-5n-dDo" firstAttribute="leading" secondItem="kVo-dZ-zOP" secondAttribute="leading" constant="2" id="0i0-T5-4MB"/>
+                                                                <constraint firstItem="YwB-5n-dDo" firstAttribute="centerX" secondItem="kVo-dZ-zOP" secondAttribute="centerX" id="R3A-Jd-jjY"/>
+                                                                <constraint firstItem="YwB-5n-dDo" firstAttribute="centerY" secondItem="kVo-dZ-zOP" secondAttribute="centerY" id="SXP-N7-eLw"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="YwB-5n-dDo" id="vuI-fK-TjY"/>
@@ -586,9 +586,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="lkh-dG-z5K" firstAttribute="centerY" secondItem="8sB-AS-Laf" secondAttribute="centerY" id="3Yx-Ig-oQU"/>
-                                                                <constraint firstItem="lkh-dG-z5K" firstAttribute="leading" secondItem="8sB-AS-Laf" secondAttribute="leading" constant="2" id="LPB-5f-RnV"/>
-                                                                <constraint firstItem="lkh-dG-z5K" firstAttribute="centerX" secondItem="8sB-AS-Laf" secondAttribute="centerX" id="T2F-Cq-BNK"/>
+                                                                <constraint firstItem="lkh-dG-z5K" firstAttribute="centerY" secondItem="8sB-AS-Laf" secondAttribute="centerY" id="3UA-Vl-66L"/>
+                                                                <constraint firstItem="lkh-dG-z5K" firstAttribute="centerX" secondItem="8sB-AS-Laf" secondAttribute="centerX" id="W30-41-GMi"/>
+                                                                <constraint firstItem="lkh-dG-z5K" firstAttribute="leading" secondItem="8sB-AS-Laf" secondAttribute="leading" constant="2" id="uXZ-0t-LVy"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="lkh-dG-z5K" id="nXO-Xl-blZ"/>
@@ -623,9 +623,9 @@
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="cWp-Qx-J7V" firstAttribute="leading" secondItem="5dL-8D-IrB" secondAttribute="leading" constant="2" id="Eba-jV-JDk"/>
-                                                                <constraint firstItem="cWp-Qx-J7V" firstAttribute="centerY" secondItem="5dL-8D-IrB" secondAttribute="centerY" id="JJk-YM-oEu"/>
-                                                                <constraint firstItem="cWp-Qx-J7V" firstAttribute="centerX" secondItem="5dL-8D-IrB" secondAttribute="centerX" id="ZO0-fl-PYv"/>
+                                                                <constraint firstItem="cWp-Qx-J7V" firstAttribute="centerX" secondItem="5dL-8D-IrB" secondAttribute="centerX" id="1qu-GZ-2Kh"/>
+                                                                <constraint firstItem="cWp-Qx-J7V" firstAttribute="leading" secondItem="5dL-8D-IrB" secondAttribute="leading" constant="2" id="LK5-w1-TD7"/>
+                                                                <constraint firstItem="cWp-Qx-J7V" firstAttribute="centerY" secondItem="5dL-8D-IrB" secondAttribute="centerY" id="rhl-8b-qA2"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="cWp-Qx-J7V" id="n94-6m-ctb"/>
@@ -653,14 +653,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <progressIndicator fixedFrame="YES" maxValue="100" doubleValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="wBf-SV-T8f">
+                            <progressIndicator misplaced="YES" maxValue="100" doubleValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="wBf-SV-T8f">
                                 <rect key="frame" x="445" y="264" width="133" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="133" id="gUf-YL-mps"/>
+                                </constraints>
                             </progressIndicator>
-                            <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="144" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-pu-PMj">
+                            <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="144" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-pu-PMj">
                                 <rect key="frame" x="0.0" y="518" width="1024" height="40"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-r6-wW0" userLabel="Server Button">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-r6-wW0" userLabel="Server Button">
                                         <rect key="frame" x="23" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Servers" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O1h-VR-Y2z">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -670,7 +672,7 @@
                                             <segue destination="Jv2-AY-bIm" kind="modal" id="Jkh-eB-ba5"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-yq-Nc5">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-yq-Nc5">
                                         <rect key="frame" x="300" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Add Job" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7ge-oz-ucO">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -681,7 +683,7 @@
                                             <segue destination="XGE-bp-bIJ" kind="modal" identifier="addEditJob" destinationCreationSelector="addJobSegue:" id="HWV-f8-R0A"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-aG-3e2">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-aG-3e2">
                                         <rect key="frame" x="577" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Set Polling Interval" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rjb-uX-Pr0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -692,7 +694,7 @@
                                             <segue destination="Bbl-ef-3Kh" kind="popover" popoverAnchorView="TUj-aG-3e2" popoverBehavior="t" preferredEdge="maxY" id="z1r-Ov-8wz"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-GW-ge1">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-GW-ge1">
                                         <rect key="frame" x="854" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aJn-ER-IDf">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -703,7 +705,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <edgeInsets key="edgeInsets" left="30" right="30" top="10" bottom="20"/>
+                                <edgeInsets key="edgeInsets" left="30" right="30" top="10" bottom="10"/>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -718,6 +720,13 @@
                                 </customSpacing>
                             </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="wBf-SV-T8f" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="79d-i6-e3T"/>
+                            <constraint firstItem="Bjn-pu-PMj" firstAttribute="leading" secondItem="PtA-ll-IfC" secondAttribute="leading" id="9UC-vg-OR8"/>
+                            <constraint firstItem="Bjn-pu-PMj" firstAttribute="centerX" secondItem="wBf-SV-T8f" secondAttribute="centerX" id="Ca6-cE-I5Y"/>
+                            <constraint firstItem="Bjn-pu-PMj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="2" id="Sjh-dx-ap2"/>
+                            <constraint firstItem="PtA-ll-IfC" firstAttribute="top" secondItem="Bjn-pu-PMj" secondAttribute="bottom" id="ZYY-yU-Q9p"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addJobButton" destination="hHx-yq-Nc5" id="rlX-sE-4dK"/>
