@@ -18,8 +18,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
     @IBOutlet weak var refreshDataButton: NSButton!
     @IBOutlet weak var setPollingIntervalButton: NSButton!
     @IBOutlet weak var busyIndicator: NSProgressIndicator!
-    @IBOutlet weak var buttonBar: NSSplitView!
-    
+
     let prefHandler = PrefHandler()
     let testingHandler = BackgroundTesting()
 
@@ -29,8 +28,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        busyIndicator.isHidden = true
         // Do any additional setup after loading the view.
         loadPreferences()
         
@@ -63,10 +60,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
         self.view.window?.styleMask.remove(.miniaturizable)
         self.view.window?.styleMask.remove(.resizable)
         
-        preferredContentSize = view.frame.size
-        
     }
-
     
     @objc func reopenWindow(){
         if (view.window?.screen ?? NSScreen.main) != nil {
@@ -91,7 +85,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     func collectDataFromBackground(){
         
-        self.busyIndicator.isHidden = false
         self.busyIndicator.startAnimation(self)
         
         DispatchQueue.global(qos: .background).async {
@@ -102,7 +95,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
                 print ("refreshData called from collectDataFromBackground")
                 self.refreshData()
                 self.sendAlerts()
-                self.busyIndicator.isHidden = true
                 self.busyIndicator.stopAnimation(self)
                 Utilties.runningRefresh = false
 
@@ -449,7 +441,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
             Utilties.runningRefresh = true
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
-                    self.busyIndicator.isHidden = false
                     self.busyIndicator.startAnimation(sender)
                 }
             }
@@ -459,7 +450,6 @@ class ViewController: NSViewController, NSWindowDelegate  {
                 
                 DispatchQueue.main.async {
                     self.sendAlerts()
-                    self.busyIndicator.isHidden = true
                     self.busyIndicator.stopAnimation(sender)
                     Utilties.runningRefresh = false
                     self.refreshData()
