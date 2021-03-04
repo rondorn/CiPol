@@ -653,11 +653,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="75" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-pu-PMj">
-                                <rect key="frame" x="0.0" y="526" width="1025" height="32"/>
+                            <progressIndicator fixedFrame="YES" maxValue="100" doubleValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="wBf-SV-T8f">
+                                <rect key="frame" x="445" y="264" width="133" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
+                            <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="144" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-pu-PMj">
+                                <rect key="frame" x="0.0" y="518" width="1024" height="40"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-r6-wW0" userLabel="Server Button">
-                                        <rect key="frame" x="23" y="-1" width="147" height="32"/>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-r6-wW0" userLabel="Server Button">
+                                        <rect key="frame" x="23" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Servers" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O1h-VR-Y2z">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -666,8 +670,8 @@
                                             <segue destination="Jv2-AY-bIm" kind="modal" id="Jkh-eB-ba5"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-yq-Nc5">
-                                        <rect key="frame" x="231" y="-1" width="147" height="32"/>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-yq-Nc5">
+                                        <rect key="frame" x="300" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Add Job" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7ge-oz-ucO">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -677,11 +681,8 @@
                                             <segue destination="XGE-bp-bIJ" kind="modal" identifier="addEditJob" destinationCreationSelector="addJobSegue:" id="HWV-f8-R0A"/>
                                         </connections>
                                     </button>
-                                    <progressIndicator maxValue="100" doubleValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="wBf-SV-T8f">
-                                        <rect key="frame" x="446" y="0.0" width="133" height="32"/>
-                                    </progressIndicator>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-aG-3e2">
-                                        <rect key="frame" x="647" y="-1" width="147" height="32"/>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-aG-3e2">
+                                        <rect key="frame" x="577" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Set Polling Interval" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rjb-uX-Pr0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -691,8 +692,8 @@
                                             <segue destination="Bbl-ef-3Kh" kind="popover" popoverAnchorView="TUj-aG-3e2" popoverBehavior="t" preferredEdge="maxY" id="z1r-Ov-8wz"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-GW-ge1">
-                                        <rect key="frame" x="855" y="-1" width="147" height="32"/>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-GW-ge1">
+                                        <rect key="frame" x="854" y="3" width="147" height="32"/>
                                         <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aJn-ER-IDf">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -702,16 +703,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <edgeInsets key="edgeInsets" left="30" right="30" top="0.0" bottom="0.0"/>
+                                <edgeInsets key="edgeInsets" left="30" right="30" top="10" bottom="20"/>
                                 <visibilityPriorities>
-                                    <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
