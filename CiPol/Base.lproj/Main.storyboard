@@ -16,7 +16,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="CiPol" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About CiMon" id="pBr-Zu-OxN" userLabel="About CiPol">
+                                        <menuItem title="About CiPol" id="pBr-Zu-OxN" userLabel="About CiPol">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="aboutMenu:" target="Voe-Tx-rLC" id="ck7-Kl-jmx"/>
