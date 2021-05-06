@@ -28,7 +28,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide CiMon" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide CiPol" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -46,7 +46,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit CiMon" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit CiPol" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -58,9 +58,15 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                                        <menuItem title="Open Window" keyEquivalent="w" id="DVo-aG-piG" userLabel="Open Window">
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
+                                                <segue destination="XfG-lQ-9wD" kind="show" identifier="newWindow" id="IZW-Sa-OBe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close" keyEquivalent="x" id="lkK-S8-UE8">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="VJO-Hw-RbU"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -121,7 +127,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="376"/>
+            <point key="canvasLocation" x="-180" y="497"/>
         </scene>
         <!--About-->
         <scene sceneID="fPO-oJ-axW">
@@ -1148,4 +1154,7 @@ Gw
             <point key="canvasLocation" x="-671" y="1434"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cq2-FE-JQM"/>
+    </inferredMetricsTieBreakers>
 </document>

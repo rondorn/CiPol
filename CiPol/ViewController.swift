@@ -63,13 +63,19 @@ class ViewController: NSViewController, NSWindowDelegate  {
     }
     
     @objc func reopenWindow(){
+    
+
         if (view.window?.screen ?? NSScreen.main) != nil {
+            print ("Zoom was called with window")
             view.window!.setIsMiniaturized(false)
+            view.window!.setIsVisible(true)
         }
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier("newWindow"), sender: nil)
+        print ("Zoom was called")
     }
     
     override func viewWillAppear() {
-        self.view.window?.standardWindowButton(NSWindow.ButtonType.closeButton)?.isEnabled = false
+        //self.view.window?.standardWindowButton(NSWindow.ButtonType.zoomButton)?.isEnabled = false
     }
     
     override func awakeFromNib() {

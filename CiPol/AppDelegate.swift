@@ -13,7 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     let notificationCenter = UNUserNotificationCenter.current()
     static var statusItem: NSStatusItem?
-
+    var control: ViewController?
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         print ("Launuching CiPol!!")
@@ -30,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 print("User has declined notifications")
             }
         }
-                
+            
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -56,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     @objc func viewWindow(_ sender: Any?) {
         
+        //storyboard.performSegue(withIdentifier: "newWindow", sender: nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "zoom"), object: nil)
         NSApp.activate(ignoringOtherApps: true)
         
