@@ -263,6 +263,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
     
     override func viewDidAppear(){
         super.viewDidAppear()
+        self.view.window?.styleMask.remove(NSWindow.StyleMask.resizable)
     }
     
     @objc func refreshData(){

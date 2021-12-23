@@ -63,6 +63,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
     }
     
+    @objc func refreshData(_ sender: Any?) {
+        
+        //storyboard.performSegue(withIdentifier: "newWindow", sender: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        NSApp.activate(ignoringOtherApps: true)
+        
+    }
+    
     @objc func quitApp(_ sender: Any?) {
         print("quit button was pressed")
         exit(0)
@@ -75,7 +83,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         menu.addItem(NSMenuItem(title: "About CiPol", action: #selector(aboutMenu(_:)), keyEquivalent: ""))
         menu.insertItem(NSMenuItem.separator(), at: 1)
         menu.addItem(NSMenuItem(title: "Show Window", action: #selector(viewWindow(_:)), keyEquivalent: ""))
-        menu.insertItem(NSMenuItem.separator(), at: 3)
+        menu.addItem(NSMenuItem(title: "Refresh", action: #selector(refreshData(_:)), keyEquivalent: ""))
+        menu.insertItem(NSMenuItem.separator(), at: 4)
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(quitApp(_:)), keyEquivalent: ""))
         
         AppDelegate.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
