@@ -105,59 +105,6 @@ class JenkinsCommuncationHandler {
         
     }
     
-    func shell(_ command: String) -> String {
-        
-        print ("Sending command \(command)")
-        let task = Process()
-        let pipe = Pipe()
-        
-        task.standardOutput = pipe
-        task.standardError = pipe
-        task.arguments = ["-c", command]
-        task.launchPath = "/bin/zsh"
-        task.launch()
-        
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)!
-        
-        print ("Recieved from command \(output)")
-        
-        return output
-    }
-    
-    
-    //moving to curl based https call outs due to some unknown issue effecting the jenkins servers I care about
-    //I am not sure the exact reason why, but calls made via curl work fine. Calls via URLRequest return 403
-    //might be a cert issue, I am not certain, but I need my code to work for my own use case at minimum
-    func makeHttpCall(userName: String, password: String, urlString: String)->[String:Any]{
-        
-        self.testData = ""
-        
-        var creds = ""
-        
-        if (userName.isEmpty == false){
-            creds = "--user '" + userName + ":" + password + "'"
-        }
-        
-        self.testData = shell("curl " + creds + " -s -X GET '" + urlString + "'");
-        
-        print("returned Json Output text = \(self.testData)")
-        if self.testData.isEmpty == false {
-            do {
-                let json = try JSONSerialization.jsonObject(with: self.testData.data(using: .utf8)!, options: [])
-                //print("Json Output json = \(json)")
-                self.jenkinsOutput = json as! [String : Any]
-            } catch {
-                print("Json Output error = \(error)")
-            }
-        }
-        
-        print("returned Json Output json = \(self.jenkinsOutput)")
-        return self.jenkinsOutput
-        
-    }
-    
-    /*
     func makeHttpCall(userName: String, password: String, urlString: String)->[String:Any]{
         
         jenkinsOutput = [String: Any]()
@@ -181,14 +128,11 @@ class JenkinsCommuncationHandler {
         print ("Json Output urlString is \(Url)")
         let serviceUrl = URL(string: Url)
         var request = URLRequest(url: serviceUrl!)
-        request.httpShouldHandleCookies = true
-        request.httpShouldUsePipelining = true
-        request.httpMethod = "GET"
-        
-        request.addValue("Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36", forHTTPHeaderField: "UserAgent")
+        request.httpMethod = "PUT"
+
         
         if (userName.isEmpty == false){
-            request.httpMethod = "POST"
+            request.httpMethod = "PUT"
             request.setValue(authString, forHTTPHeaderField: "Authorization")
         }
         request.addValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -242,7 +186,6 @@ class JenkinsCommuncationHandler {
         print("returned Json Output json = \(self.jenkinsOutput)")
         return self.jenkinsOutput
     }
-    */
     
     func buildPassed(rawData: [String : Any], preferences: PrefHandler, jobName: String) -> [String:String] {
             
