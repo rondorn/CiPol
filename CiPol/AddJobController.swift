@@ -241,7 +241,7 @@ class AddJobController: NSViewController {
         if (jobNamePopUp4.titleOfSelectedItem?.contains("/job/") == true){
             _ = Toast.displayMesssage(title: "Alert", message: "You have reached the maximum number of levels")
         } else {
-            finalJobName = finalJobName + "/" +  jobNamePopUp4.titleOfSelectedItem!
+            finalJobName = finalJobName + "/job" +  jobNamePopUp4.titleOfSelectedItem!
         }
     }
     
