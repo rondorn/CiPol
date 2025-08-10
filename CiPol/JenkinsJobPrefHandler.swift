@@ -11,10 +11,12 @@ class JenkinsJobPrefHandler {
 
     var jobName = String()
     var lastJobStatus = String()
+    var lastRunStatus = String()
     var status = String()
     var serverRecord = String()
     var lastPolled = String()
     var monitoring = Bool()
+    var multiAlert = true
     var lastTested = String()
     var lastTestedDiff = Double()
     
@@ -73,7 +75,14 @@ class JenkinsJobPrefHandler {
     func getLastJobStatus()->String{
         return self.lastJobStatus
     }
- 
+
+    func setLastRunStatus(lastRunStatus: String){
+        self.lastRunStatus = lastRunStatus
+    }
+    func getLastRunStatus()->String{
+        return self.lastRunStatus
+    }
+    
     func setServerRecord(serverRecord: String){
         self.serverRecord = serverRecord
     }
@@ -88,16 +97,25 @@ class JenkinsJobPrefHandler {
         return self.monitoring
     }
     
+    func setMultiAlert(multiAlert: Bool){
+        self.multiAlert = multiAlert
+    }
+    func getMultiAlert()->Bool{
+        return self.multiAlert
+    }
+    
     //lastTestedDiff
     func getBasicArrayData()->[String:String]{
         
         var basicArray = [String:String]()
         basicArray["jobName"] = self.getJobName()
         basicArray["lastJobStatus"] = self.getLastJobStatus()
+        basicArray["lastRunStatus"] = self.getLastRunStatus()
         basicArray["serverRecord"] = self.getServerRecord()
         basicArray["status"] = self.getStatus()
         basicArray["lastPolled"] = self.getLastPolled()
         basicArray["monitoring"] = String(self.getMonitoring())
+        basicArray["multiAlert"] = String(self.getMultiAlert())
         basicArray["lastTested"] = self.getLastTested()
         basicArray["lastTestedDiff"] = String(self.getLastTestedDiff())
         
@@ -115,6 +133,7 @@ class JenkinsJobPrefHandler {
         self.setLastTestedDiff(lastTestedDiff: basicArray["lastTestedDiff"] ?? "0")
 
         self.setMonitoring(monitoring: Bool(basicArray["monitoring"] ?? "true") ?? true)
+        self.setMultiAlert(multiAlert: Bool(basicArray["multiAlert"] ?? "true") ?? true)
         
     }
 }
@@ -124,7 +143,7 @@ extension String {
         let numberIn = self
         let numberOut = NumberFormatter().number(from: numberIn)?.doubleValue
         
-        print ("numberIn = \(numberIn) numberOut = \(numberOut)")
+        print ("numberIn = \(numberIn) numberOut = \(numberOut ?? 0)")
         return numberOut?.rounded()
     }
 }

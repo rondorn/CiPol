@@ -35,8 +35,14 @@ class ViewController: NSViewController, NSWindowDelegate  {
         jobsTable.dataSource = self
         
         setupRightClickMenu()
+        setupColumnTooltips()
         
         jobsTable.reloadData()
+        
+        // Adjust column widths after initial data load
+        DispatchQueue.main.async {
+            self.adjustColumnWidths()
+        }
                 
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataPressed), name: NSNotification.Name(rawValue: "load"), object: nil)
         
@@ -187,6 +193,27 @@ class ViewController: NSViewController, NSWindowDelegate  {
         refreshData()
     }
     
+    private func toggleMultiAlert(jobName: String) {
+        
+        guard jobsTable.clickedRow >= 0 else { return }
+
+        let jobName = self.tableData[jobsTable.clickedRow]!["jobName"]
+        let jobData = prefHandler.getJobDetails(jobName: jobName!)
+        
+        var multiAlertValue = Bool()
+        
+        if (jobData.getMultiAlert() == true){
+            multiAlertValue = false
+        } else {
+            multiAlertValue = true
+        }
+        jobData.setMultiAlert(multiAlert: multiAlertValue)
+        prefHandler.setJenkinsJobData(jobName: jobName!, jobData: jobData)
+        prefHandler.savePreferences()
+        print ("refreshData called from toggleMultiAlert")
+        refreshData()
+    }
+    
     @objc private func onItemClicked(_ sender: AnyObject) {
         
         let row = jobsTable.clickedRow
@@ -196,6 +223,8 @@ class ViewController: NSViewController, NSWindowDelegate  {
             let jobName = self.tableData[row]!["jobName"]
             if (column == 0){
                 toggleMonitoring(jobName: jobName!);
+            } else if (column == 1){
+                toggleMultiAlert(jobName: jobName!);
             }
         }
         
@@ -211,6 +240,125 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         jobsTable.doubleAction = #selector(openJenkinsUrl(_:))
         jobsTable.action = #selector(onItemClicked)
+    }
+    
+    func setupColumnTooltips(){
+        
+        // Set tooltips for each column header
+        if jobsTable.tableColumns.count >= 8 {
+            jobsTable.tableColumns[0].headerToolTip = "This will alert when job change state"
+            jobsTable.tableColumns[1].headerToolTip = "This will alert on each failure, even if the job does not change state"
+            jobsTable.tableColumns[2].headerToolTip = "Pass/Fail status indicator"
+            jobsTable.tableColumns[3].headerToolTip = "The Jenkins server name for the job"
+            jobsTable.tableColumns[4].headerToolTip = "The User Defined Name Of the Jenkins server"
+            jobsTable.tableColumns[5].headerToolTip = "The status of the job, if it is currently running for example"
+            jobsTable.tableColumns[6].headerToolTip = "How long ago the job was last run"
+            jobsTable.tableColumns[7].headerToolTip = "The last time the app checked the status on the Jenkins server"
+        }
+    }
+    
+    func adjustColumnWidths(){
+        
+        guard jobsTable.tableColumns.count >= 8 else { return }
+        
+        // Calculate optimal widths based on content
+        let optimalColumnWidths = calculateOptimalColumnWidths()
+        let totalOptimalWidth = optimalColumnWidths.reduce(0, +)
+        
+        // Determine the minimum window width needed (buttons need ~1024px minimum)
+        let minWindowWidth: CGFloat = 1024
+        let optimalWindowWidth = max(minWindowWidth, totalOptimalWidth + 50) // +50 for padding/scrollbars
+        
+        // Adjust window size first
+        adjustWindowSize(newWidth: optimalWindowWidth)
+        
+        // Get the actual available table width after window resize
+        let availableTableWidth = optimalWindowWidth - 50 // Account for scrollbars and padding
+        
+        // If optimal width fits, use it; otherwise distribute available space proportionally
+        let finalColumnWidths: [CGFloat]
+        if totalOptimalWidth <= availableTableWidth {
+            // Optimal widths fit, but distribute any extra space proportionally
+            let distributionRatio = availableTableWidth / totalOptimalWidth
+            finalColumnWidths = optimalColumnWidths.map { $0 * distributionRatio }
+        } else {
+            // Need to compress columns proportionally to fit available space
+            let compressionRatio = availableTableWidth / totalOptimalWidth
+            finalColumnWidths = optimalColumnWidths.map { $0 * compressionRatio }
+        }
+        
+        // Apply the calculated widths
+        for (index, width) in finalColumnWidths.enumerated() {
+            if index < jobsTable.tableColumns.count {
+                jobsTable.tableColumns[index].width = width
+            }
+        }
+    }
+    
+    func calculateOptimalColumnWidths() -> [CGFloat] {
+        
+        // Base minimum widths for each column
+        let minWidths: [CGFloat] = [
+            67,   // Alert (checkbox)
+            80,   // Multi Alert (checkbox)
+            56,   // Pass/Fail (icon)
+            150,  // Job Name (minimum for readability)
+            120,  // Server Name (minimum for readability)
+            80,   // Status
+            100,  // Last Ran
+            120   // Last Polled
+        ]
+        
+        // Calculate content-based widths
+        var optimalWidths = minWidths
+        
+        // For Job Name column - find longest job name
+        var maxJobNameWidth: CGFloat = minWidths[3]
+        for jobName in jobList {
+            let jobDetails = prefHandler.getJobDetails(jobName: jobName)
+            let displayName = jobDetails.getJobName().replacingOccurrences(of: "/job/", with: "-")
+            let cleanDisplayName = displayName.hasPrefix("-") ? String(displayName.dropFirst()) : displayName
+            
+            let textWidth = cleanDisplayName.size(withAttributes: [
+                .font: NSFont.boldSystemFont(ofSize: 12)
+            ]).width + 20 // padding
+            
+            maxJobNameWidth = max(maxJobNameWidth, textWidth)
+        }
+        optimalWidths[3] = min(maxJobNameWidth, 400) // Cap at 400px
+        
+        // For Server Name column - find longest server name
+        var maxServerNameWidth: CGFloat = minWidths[4]
+        let serverNames = Set(jobList.map { prefHandler.getJobDetails(jobName: $0).getServerRecord() })
+        for serverName in serverNames {
+            let textWidth = serverName.size(withAttributes: [
+                .font: NSFont.boldSystemFont(ofSize: 12)
+            ]).width + 20 // padding
+            
+            maxServerNameWidth = max(maxServerNameWidth, textWidth)
+        }
+        optimalWidths[4] = min(maxServerNameWidth, 200) // Cap at 200px
+        
+        return optimalWidths
+    }
+    
+    func adjustWindowSize(newWidth: CGFloat) {
+        
+        guard let window = self.view.window else { return }
+        
+        let currentFrame = window.frame
+        let clampedWidth = max(1024, min(newWidth, 1600)) // Min 1024px, Max 1600px
+        
+        // Only resize if the width has changed significantly (avoid unnecessary resizes)
+        if abs(clampedWidth - currentFrame.width) > 10 {
+            let newFrame = NSRect(
+                x: currentFrame.origin.x,
+                y: currentFrame.origin.y,
+                width: clampedWidth,
+                height: currentFrame.height
+            )
+            window.setFrame(newFrame, display: true, animate: true)
+        }
     }
     
     func sendAlerts(){
@@ -238,27 +386,35 @@ class ViewController: NSViewController, NSWindowDelegate  {
         }
         
         if (testsPassing.count == 1){
-            notificationHandle.showNotification(jobName: testsPassing.first!, jobStatus: Utilties.testPassed)
+            let jobName = testsPassing.first!
+            let alertType = BackgroundTesting.alertTypes[jobName] ?? "stateChange"
+            notificationHandle.showNotification(jobName: jobName, jobStatus: Utilties.testPassed, alertType: alertType)
             
         } else if (testsPassing.count > 1){
             notificationHandle.showNotification(jobNames: testsPassing, jobStatus: Utilties.testPassed)
         }
 
         if (testsFailing.count == 1){
-            notificationHandle.showNotification(jobName: testsFailing.first!, jobStatus: Utilties.testFailed)
+            let jobName = testsFailing.first!
+            let alertType = BackgroundTesting.alertTypes[jobName] ?? "stateChange"
+            notificationHandle.showNotification(jobName: jobName, jobStatus: Utilties.testFailed, alertType: alertType)
             
         } else if (testsFailing.count > 1){
             notificationHandle.showNotification(jobNames: testsFailing, jobStatus: Utilties.testFailed)
         }
         
         if (testsUnknown.count == 1){
-            notificationHandle.showNotification(jobName: testsUnknown.first!, jobStatus: Utilties.testUnknown)
+            let jobName = testsUnknown.first!
+            let alertType = BackgroundTesting.alertTypes[jobName] ?? "stateChange"
+            notificationHandle.showNotification(jobName: jobName, jobStatus: Utilties.testUnknown, alertType: alertType)
             
         } else if (testsUnknown.count > 1){
             notificationHandle.showNotification(jobNames: testsUnknown, jobStatus: Utilties.testUnknown)
         }
         
         BackgroundTesting.alertData = [String:String]()
+        BackgroundTesting.alertTypes = [String:String]()
+        // Note: We don't clear previousJobStatuses and jobsInProgress as they need to persist between polling cycles
     }
     
     override func viewDidAppear(){
@@ -270,6 +426,11 @@ class ViewController: NSViewController, NSWindowDelegate  {
         
         self.loadPreferences()
         self.jobsTable.reloadData()
+        
+        // Adjust column widths after data is loaded
+        DispatchQueue.main.async {
+            self.adjustColumnWidths()
+        }
     }
     
     func loadPreferences(){
@@ -302,6 +463,7 @@ class ViewController: NSViewController, NSWindowDelegate  {
             jobDetailsData["lastRanDiff"] = String(jobDetails.getLastTestedDiff())
             jobDetailsData["lastPolled"] = jobDetails.getLastPolled()
             jobDetailsData["monitoring"] = String(jobDetails.getMonitoring())
+            jobDetailsData["multiAlert"] = String(jobDetails.getMultiAlert())
             
             //make job name more user friendly
             let displayName  = jobDetailsData["jobName"]! .replacingOccurrences(of: "/job/", with: "-")
@@ -502,6 +664,7 @@ extension ViewController: NSTableViewDelegate {
 
   fileprivate enum CellIdentifiers {
     static let monitoringId = "monitoringId"
+    static let multiAlertId = "multiAlertId"
     static let passFailId = "passFailTextId"
     static let jobNameId = "jobNameId"
     static let serverNameId = "serverNameId"
@@ -528,26 +691,30 @@ extension ViewController: NSTableViewDelegate {
         cellIdentifier = CellIdentifiers.monitoringId
         
     } else if tableColumn == tableView.tableColumns[1] {
+        text = Utilties.getMonitoringIcon(status: tableData[row]!["multiAlert"]!)
+        cellIdentifier = CellIdentifiers.multiAlertId
+        
+    } else if tableColumn == tableView.tableColumns[2] {
         text = tableData[row]!["passFail"]!
         cellIdentifier = CellIdentifiers.passFailId
         
-    } else if tableColumn == tableView.tableColumns[2] {
+    } else if tableColumn == tableView.tableColumns[3] {
         text = tableData[row]!["displayName"]!
         cellIdentifier = CellIdentifiers.jobNameId
         
-    } else if tableColumn == tableView.tableColumns[3] {
+    } else if tableColumn == tableView.tableColumns[4] {
         text = tableData[row]!["serverName"]!
         cellIdentifier = CellIdentifiers.serverNameId
         
-    } else if tableColumn == tableView.tableColumns[4] {
+    } else if tableColumn == tableView.tableColumns[5] {
         text = tableData[row]!["status"]!
         cellIdentifier = CellIdentifiers.statusID
         
-    } else if tableColumn == tableView.tableColumns[5] {
+    } else if tableColumn == tableView.tableColumns[6] {
         text = tableData[row]!["lastRan"]!
         cellIdentifier = CellIdentifiers.lastRanId
         
-    } else if tableColumn == tableView.tableColumns[6] {
+    } else if tableColumn == tableView.tableColumns[7] {
         text = tableData[row]!["lastPolled"]!
         cellIdentifier = CellIdentifiers.lastPooledId
         

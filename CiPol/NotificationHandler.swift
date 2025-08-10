@@ -74,6 +74,36 @@ class NotificationHandler {
  
     }
     
+    func showNotification(jobName: String, jobStatus: String, alertType: String) -> Void {
+        
+        let icon = Utilties.getPassFailIcon(status: jobStatus)
+        var iconText = ""
+        
+
+        if jobStatus == Utilties.testPassed {
+            iconText = "\(icon) \(jobName) Passing"
+            
+        } else if jobStatus == Utilties.testFailed {
+            iconText = "\(icon) \(jobName) Failing"
+        
+        } else {
+            iconText = "\(icon) \(jobName) Unknown"
+        }
+        
+        // Adjust message based on alert type
+        var message = ""
+        if alertType == "multiAlert" && jobStatus == Utilties.testFailed {
+            message = "Jenkins job \(jobName) still failing"
+        } else {
+            message = "Jenkins job \(jobName) now \(jobStatus)"
+        }
+        
+        print ("Entering NotificationHandler with alertType: \(alertType)")
+        
+        self.showNotification(title: iconText, message: message)
+ 
+    }
+    
     func showNotification(jobNames: [String], jobStatus: String) -> Void {
         
         let icon = Utilties.getPassFailIcon(status: jobStatus)

@@ -363,14 +363,14 @@
             <objects>
                 <viewController title="CiPol" showSeguePresentationStyle="single" id="XfG-lQ-9wD" userLabel="CiPol" customClass="ViewController" customModule="CiPol" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="560"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="560"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="PtA-ll-IfC">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="518"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1200" height="518"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" id="FDW-SG-Zfg">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="518"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1200" height="518"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="hde-93-mIy" viewBased="YES" id="bao-Ny-OkS">
@@ -413,6 +413,43 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="O4W-PO-dIB" id="mOM-i0-kmn"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="multiAlertId" width="80" minWidth="10" maxWidth="3.4028234663852886e+38" id="MA1-cI-MR8">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Multi Alert">
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="MA2-ah-thd">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="multiAlert"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="multiAlertId" id="MA3-Xl-dXq">
+                                                            <rect key="frame" x="84" y="1" width="80" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MA4-PO-dIB">
+                                                                    <rect key="frame" x="1" y="1" width="76" height="16"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="MA5-gP-2eM">
+                                                                        <font key="font" usesAppearanceFont="YES"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="MA4-PO-dIB" secondAttribute="trailing" constant="5" id="MA6-wM-Xgy"/>
+                                                                <constraint firstItem="MA4-PO-dIB" firstAttribute="leading" secondItem="MA3-Xl-dXq" secondAttribute="leading" constant="3" id="MA7-bn-rKj"/>
+                                                                <constraint firstItem="MA4-PO-dIB" firstAttribute="centerY" secondItem="MA3-Xl-dXq" secondAttribute="centerY" id="MA8-3E-jXs"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="MA4-PO-dIB" id="MA9-i0-kmn"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -647,7 +684,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="e6b-mU-jNv">
-                                    <rect key="frame" x="0.0" y="502" width="1024" height="16"/>
+                                    <rect key="frame" x="0.0" y="502" width="1200" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" identifier="lastRunTextId" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="k2c-KD-DaZ">
@@ -666,7 +703,7 @@
                                 </constraints>
                             </progressIndicator>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="144" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-pu-PMj">
-                                <rect key="frame" x="0.0" y="518" width="1024" height="40"/>
+                                <rect key="frame" x="0.0" y="518" width="1200" height="40"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-r6-wW0" userLabel="Server Button">
                                         <rect key="frame" x="23" y="3" width="147" height="32"/>
