@@ -57,11 +57,55 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     
     @objc func viewWindow(_ sender: Any?) {
         
-        //storyboard.performSegue(withIdentifier: "newWindow", sender: nil)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "zoom"), object: nil)
+        print("AppDelegate: viewWindow called - forcing window to front")
+        
+        // Force app activation immediately
         NSApp.activate(ignoringOtherApps: true)
+        NSApp.unhide(nil)
+        
+        // Find and activate the main application window directly
+        var foundWindow = false
+        for window in NSApp.windows {
+            // Skip status bar and other system windows
+            if window.isVisible || window.isMiniaturized {
+                if window.canBecomeKey && window.contentViewController != nil {
+                    print("AppDelegate: Found and activating window: \(window)")
+                    
+                    // Restore if minimized
+                    if window.isMiniaturized {
+                        window.deminiaturize(nil)
+                    }
+                    
+                    // Force window to front with multiple methods
+                    window.makeKeyAndOrderFront(nil)
+                    window.orderFrontRegardless()
+                    window.setIsVisible(true)
+                    window.collectionBehavior = .moveToActiveSpace
+                    
+                    foundWindow = true
+                    break
+                }
+            }
+        }
+        
+        // If no window found, use the notification system as fallback
+        if !foundWindow {
+            print("AppDelegate: No window found, using notification fallback")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "zoom"), object: nil)
+        }
+        
+        // Multiple delayed activations to ensure it sticks
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            NSApp.activate(ignoringOtherApps: true)
+        }
         
     }
+    
+
     
     @objc func refreshData(_ sender: Any?) {
         

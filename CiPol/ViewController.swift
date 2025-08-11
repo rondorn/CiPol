@@ -69,16 +69,64 @@ class ViewController: NSViewController, NSWindowDelegate  {
     }
     
     @objc func reopenWindow(){
+        print ("ViewController: Zoom was called")
+
+        // Force app activation first
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.unhide(nil)
+        
+        if let window = view.window {
+            print ("ViewController: Found existing window: \(window)")
+            
+            // Restore if minimized
+            if window.isMiniaturized {
+                print ("ViewController: Deminiaturizing window")
+                window.deminiaturize(nil)
+            }
+            
+            // Aggressive window activation
+            window.orderFrontRegardless()
+            window.makeKeyAndOrderFront(nil)
+            window.setIsVisible(true)
+            window.collectionBehavior = .moveToActiveSpace
+            
+            // Force focus with delay to ensure it takes effect
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                window.makeKeyAndOrderFront(nil)
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            
+        } else {
+            print ("ViewController: No window reference - searching all windows")
+            
+            // Search through all windows to find our main window
+            var foundWindow = false
+            for window in NSApp.windows {
+                if window.canBecomeKey && window.contentViewController != nil {
+                    print ("ViewController: Found and activating window: \(window)")
+                    
+                    if window.isMiniaturized {
+                        window.deminiaturize(nil)
+                    }
+                    
+                    window.orderFrontRegardless()
+                    window.makeKeyAndOrderFront(nil)
+                    window.setIsVisible(true)
+                    window.collectionBehavior = .moveToActiveSpace
+                    
+                    foundWindow = true
+                    break
+                }
+            }
+            
+            if !foundWindow {
+                print ("ViewController: No window found - creating new window")
+                performSegue(withIdentifier: NSStoryboardSegue.Identifier("newWindow"), sender: nil)
+            }
+        }
+    }
     
 
-        if (view.window?.screen ?? NSScreen.main) != nil {
-            print ("Zoom was called with window")
-            view.window!.setIsMiniaturized(false)
-            view.window!.setIsVisible(true)
-        }
-        performSegue(withIdentifier: NSStoryboardSegue.Identifier("newWindow"), sender: nil)
-        print ("Zoom was called")
-    }
     
     override func viewWillAppear() {
         //self.view.window?.standardWindowButton(NSWindow.ButtonType.zoomButton)?.isEnabled = false
